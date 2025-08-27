@@ -1,0 +1,18 @@
+# .streamlit/config.toml
+[theme]
+base = "light"                     # force le mode clair (pas "System")
+primaryColor = "#0B8A65"
+backgroundColor = "#F7F4EB"        # fond page
+secondaryBackgroundColor = "#FFFFFF" # fond sidebar/cartes
+textColor = "#111111"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false           # évite l’écriture du machine_id
+
+[server]
+headless = true
+address = "0.0.0.0"
+port = 7860
+enableCORS = true
+enableXsrfProtection = true
