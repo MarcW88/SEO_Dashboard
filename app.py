@@ -416,7 +416,7 @@ if not theme_A_f.empty:
     )
 
     fig.update_layout(
-        polar=dict(radialaxis=dict(visible=True, range=[0, 100], bgcolor="white")),
+        polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
         showlegend=True,
         margin=dict(l=20, r=20, t=10, b=20),
         height=420,
