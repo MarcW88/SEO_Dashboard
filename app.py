@@ -252,7 +252,7 @@ def match_items_to_labels(items: pd.DataFrame, labels: pd.DataFrame, thr: float 
             cand_idx.update(bucket.get(t, []))
         best_i, best_score = None, 0.0
         for i in (cand_idx or range(len(lab))):
-            ltoks = lab.at[i, "tokens"]
+            ltoks = lab.at(i, "tokens")
             if not ltoks: continue
             inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
             jacc = inter / union if union else 0.0
@@ -291,6 +291,20 @@ if not matches_A.empty:
         best_theme = str(agg.iloc[0]["theme"])
 
 # -------------------- KPI CARDS -------------------------------
+c1_css = """
+<style>
+div[data-testid="stMetric"], div[data-testid="metric-container"] {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+}
+div[data-testid="stMetric"] *,
+div[data-testid="metric-container"] * {
+    color: #000000 !important;
+}
+</style>
+"""
+st.markdown(c1_css, unsafe_allow_html=True)
 c1, c2, c3 = st.columns(3)
 c1.metric("Couverture Top 10 (global)", f"{pct_top10:.1f} %", help=f"Période: {start_A} → {end_d}")
 c2.metric("Potentiel 11–20 (global)", f"{pct_11_20:.1f} %", help=f"Période: {start_A} → {end_d}")
@@ -426,7 +440,7 @@ with c_top[0]:
         "Filtrer par labels (thèmes)",
         options=themes_all_comp,
         default=default_themes_comp,
-        help="Les stats concurrence ne prennent en compte que ces thèmes."
+        help="Les stats concurrence ne prennent en compte que ces thèmes.",
     )
 
 with c_top[1]:
@@ -435,7 +449,7 @@ with c_top[1]:
     comp_text = st.text_area(
         " ",
         value="",
-        placeholder=f"ex:\n{target_domain}\nexample.com\nhttps://competiteur.be/",
+        placeholder=f"ex:\\n{target_domain}\\nexample.com\\nhttps://competiteur.be/",
         height=90
     )
 with c_top[2]:
@@ -545,7 +559,7 @@ def best_label_idx_for_kw_tokens(rtoks:set, thr:float=0.6) -> Optional[int]:
         cand_idx.update(bucket.get(t, []))
     best_i, best_score = None, 0.0
     for i in (cand_idx or range(len(lab_idx))):
-        ltoks = lab_idx.at[i, "tokens"]
+        ltoks = lab_idx.at(i, "tokens")
         if not ltoks: continue
         inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
         jacc = inter/union if union else 0.0
