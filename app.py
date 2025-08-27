@@ -642,7 +642,14 @@ with box:
                 marker=dict(colors=colors[: len(comp_df)])
             )],
         )
-        fig.update_layout(title="Share of visibility (mots-clés filtrés)", margin=dict(l=10,r=10,t=40,b=10), height=420, legend=dict(orientation="v"))
+        fig.update_layout(
+            title="Share of visibility (mots-clés filtrés)",
+            margin=dict(l=10, r=10, t=40, b=10),
+            height=420,
+            paper_bgcolor="white",
+            plot_bgcolor="white",
+            legend=dict(orientation="v"),
+        )
         st.plotly_chart(fig, use_container_width=True)
 
 
