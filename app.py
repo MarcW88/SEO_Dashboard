@@ -367,7 +367,11 @@ if not metrics_df.empty:
             )
             st.altair_chart(chart, use_container_width=True)
         with cc2:
-            st.dataframe(dist_df, use_container_width=True, hide_index=True)
+            st.dataframe(
+                dist_df.style.set_properties(**{"background-color": "#ffffff"}),
+                use_container_width=True,
+                hide_index=True,
+            )
 else:
     st.caption("Pas de métriques globales disponibles pour dessiner la distribution.")
 
