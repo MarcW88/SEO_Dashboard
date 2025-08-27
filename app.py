@@ -252,7 +252,8 @@ def match_items_to_labels(items: pd.DataFrame, labels: pd.DataFrame, thr: float 
             cand_idx.update(bucket.get(t, []))
         best_i, best_score = None, 0.0
         for i in (cand_idx or range(len(lab))):
-            ltoks = lab.loc[i, "tokens"]
+ltoks = lab.loc[i, "tokens"]
+
             if not ltoks: continue
             inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
             jacc = inter / union if union else 0.0
@@ -440,7 +441,7 @@ with c_top[0]:
         "Filtrer par labels (thèmes)",
         options=themes_all_comp,
         default=default_themes_comp,
-        help="Les stats concurrence ne prennent en compte que ces thèmes."
+        help="Les stats concurrence ne prennent en compte que ces thèmes.",
     )
 
 with c_top[1]:
@@ -449,7 +450,7 @@ with c_top[1]:
     comp_text = st.text_area(
         " ",
         value="",
-        placeholder=f"ex:\n{target_domain}\nexample.com\nhttps://competiteur.be/",
+        placeholder=f"ex:\\n{target_domain}\\nexample.com\\nhttps://competiteur.be/",
         height=90
     )
 with c_top[2]:
@@ -559,7 +560,8 @@ def best_label_idx_for_kw_tokens(rtoks:set, thr:float=0.6) -> Optional[int]:
         cand_idx.update(bucket.get(t, []))
     best_i, best_score = None, 0.0
     for i in (cand_idx or range(len(lab_idx))):
-        ltoks = lab_idx.loc[i, "tokens"]
+ltoks = lab.loc[i, "tokens"]
+
         if not ltoks: continue
         inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
         jacc = inter/union if union else 0.0
