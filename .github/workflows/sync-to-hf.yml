@@ -2,21 +2,35 @@ name: Sync to Hugging Face hub
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           lfs: true
-      - name: Push to Space
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Add Hugging Face remote
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git push https://HF_USERNAME:${HF_TOKEN}@huggingface.co/spaces/NinjasOfSEO/Dashboard_SEO main
+          # clean/replace the remote if it already exists
+          git remote remove space 2>/dev/null || true
+          git remote add space "https://NinjasOfSEO:${HF_TOKEN}@huggingface.co/spaces/NinjasOfSEO/Dashboard_SEO"
+
+      - name: Push main to Space (force first sync)
+        run: |
+          # push local main -> Space main; --force is required if the Space already has history
+          git push --force space main:main
