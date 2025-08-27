@@ -251,12 +251,19 @@ def match_items_to_labels(items: pd.DataFrame, labels: pd.DataFrame, thr: float 
         for t in list(rtoks)[:3]:
             cand_idx.update(bucket.get(t, []))
         best_i, best_score = None, 0.0
-        for i in (cand_idx or range(len(lab))):
-            ltoks = lab.at[i, "tokens"]
-            if not ltoks: continue
-            inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
+        search_space = cand_idx if cand_idx else range(len(lab))
+        for i in search_space:
+            ltoks = lab.loc[i, "tokens"]
+            if not ltoks:
+                continue
+            inter = len(rtoks & ltoks)
+            union = len(rtoks | ltoks)
             jacc = inter / union if union else 0.0
-            contains = min(inter / len(ltoks), inter / len(rtoks)) if inter >= 2 else 0.0
+            contains = (
+                min(inter / len(ltoks), inter / len(rtoks))
+                if inter >= 2
+                else 0.0
+            )
             score = max(jacc, contains)
             if score > best_score:
                 best_score, best_i = score, i
@@ -270,7 +277,7 @@ matches_B = match_items_to_labels(rk_items_B, labels_df, thr=0.6) if compare_pre
 def compute_theme_top10(matches_df: pd.DataFrame) -> pd.DataFrame:
     if matches_df.empty: return pd.DataFrame(columns=["theme","top10_ratio"])
     tmp = matches_df.copy()
-    tmp["theme"] = tmp["label_idx"].apply(lambda i: primary_theme(labels_df.at[i, "labels"]))
+    tmp["theme"] = tmp["label_idx"].apply(lambda i: primary_theme(labels_df.loc[i, "labels"]))
     return (tmp.assign(in_top10=tmp["rank_absolute"].le(10))
                .groupby("theme", as_index=False)["in_top10"].mean()
                .rename(columns={"in_top10":"top10_ratio"}))
@@ -282,7 +289,7 @@ theme_B = compute_theme_top10(matches_B) if compare_prev else pd.DataFrame()
 best_theme = "—"
 if not matches_A.empty:
     counts = matches_A.copy()
-    counts["theme"] = counts["label_idx"].apply(lambda i: primary_theme(labels_df.at[i, "labels"]))
+    counts["theme"] = counts["label_idx"].apply(lambda i: primary_theme(labels_df.loc[i, "labels"]))
     agg = (counts.assign(in_top10=counts["rank_absolute"].le(10))
                  .groupby("theme", as_index=False)
                  .agg(top10_ratio=("in_top10","mean"), n=("in_top10","size"))
@@ -291,6 +298,20 @@ if not matches_A.empty:
         best_theme = str(agg.iloc[0]["theme"])
 
 # -------------------- KPI CARDS -------------------------------
+c1_css = """
+<style>
+div[data-testid="stMetric"], div[data-testid="metric-container"] {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+}
+div[data-testid="stMetric"] *,
+div[data-testid="metric-container"] * {
+    color: #000000 !important;
+}
+</style>
+"""
+st.markdown(c1_css, unsafe_allow_html=True)
 c1, c2, c3 = st.columns(3)
 c1.metric("Couverture Top 10 (global)", f"{pct_top10:.1f} %", help=f"Période: {start_A} → {end_d}")
 c2.metric("Potentiel 11–20 (global)", f"{pct_11_20:.1f} %", help=f"Période: {start_A} → {end_d}")
@@ -545,7 +566,7 @@ def best_label_idx_for_kw_tokens(rtoks:set, thr:float=0.6) -> Optional[int]:
         cand_idx.update(bucket.get(t, []))
     best_i, best_score = None, 0.0
     for i in (cand_idx or range(len(lab_idx))):
-        ltoks = lab_idx.at[i, "tokens"]
+        ltoks = lab_idx.loc[i, "tokens"]
         if not ltoks: continue
         inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
         jacc = inter/union if union else 0.0
@@ -565,7 +586,7 @@ for dom in competitors:
     dfc["tokens"] = dfc["rk_keyword"].apply(tok_norm)
     # map vers theme
     lbl_idx = dfc["tokens"].apply(best_label_idx_for_kw_tokens)
-    dfc["theme"] = lbl_idx.apply(lambda i: primary_theme(lab_idx.at[i, "labels"]) if pd.notna(i) else "Unlabeled")
+    dfc["theme"] = lbl_idx.apply(lambda i: primary_theme(lab_idx.loc[i, "labels"]) if pd.notna(i) else "Unlabeled")
     # filtre thèmes choisis
     dfc = dfc[dfc["theme"].isin(comp_sel_themes or dfc["theme"].unique())]
     if dfc.empty:
