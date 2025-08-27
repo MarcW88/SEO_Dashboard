@@ -363,7 +363,10 @@ if not metrics_df.empty:
                        x=alt.X("bucket:N", sort=["Top 1","Top 2–3","Top 4–10","Top 11–20","Top 21–50","Top 51–100"]),
                        y=alt.Y("count:Q"),
                        tooltip=["bucket","count","share_%"]
-                   ).properties(height=260)
+                   )
+                   .properties(height=260)
+                   .configure(background="white")
+                   .configure_view(fill="white")
             )
             st.altair_chart(chart, use_container_width=True)
         with cc2:
@@ -624,7 +627,10 @@ with box:
                 y=alt.Y("competitor:N", sort='-x', title=None),
                 color=alt.Color("competitor:N", scale=alt.Scale(range=colors), legend=None),
                 tooltip=["competitor","keywords","top10_pct","share_%"]
-            ).properties(height=420, title="Pages/keywords concurrents sur les mêmes thèmes")
+            )
+            .properties(height=420, title="Pages/keywords concurrents sur les mêmes thèmes")
+            .configure(background="white")
+            .configure_view(fill="white")
         )
         st.altair_chart(bar, use_container_width=True)
 
