@@ -328,16 +328,6 @@ import plotly.graph_objects as go
 
 st.divider()
 st.subheader("Keyword distribution")
-
-st.markdown(
-    """
-<style>
-.viz-box {background:#ffffff; border-radius:8px; border:0.5px solid #d1d5db; padding:1rem;}
-</style>
-""",
-    unsafe_allow_html=True,
-)
-
 if not metrics_df.empty:
     m = metrics_df.iloc[0].to_dict()
     buckets = {
@@ -352,8 +342,19 @@ if not metrics_df.empty:
     total_count = int(m.get("count", 0) or 0)
     dist_df["share_%"] = (dist_df["count"] / max(total_count, 1) * 100).round(1)
 
-    with st.container():
-        st.markdown("<div class='viz-box'>", unsafe_allow_html=True)
+    box = st.container()
+    box.markdown(
+        """
+        <style>
+        div[data-testid="stVerticalBlock"] {
+            background:#ffffff; border:0.5px solid #d1d5db;
+            border-radius:8px; padding:1rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    with box:
         cc1, cc2 = st.columns([2,1])
         with cc1:
             chart = (
@@ -368,7 +369,6 @@ if not metrics_df.empty:
             st.altair_chart(chart, use_container_width=True)
         with cc2:
             st.dataframe(dist_df, use_container_width=True, hide_index=True)
-        st.markdown("</div>", unsafe_allow_html=True)
 else:
     st.caption("Pas de métriques globales disponibles pour dessiner la distribution.")
 
@@ -600,20 +600,21 @@ if comp_df.empty:
 
 # part de visibilité (= part du volume de mots-clés filtrés)
 comp_df["share_%"] = (comp_df["keywords"] / comp_df["keywords"].sum() * 100).round(1)
-
-st.markdown(
-    """
-<style>
-.comp-box {background:#ffffff; border-radius:8px; border:0.5px solid #d1d5db; padding:1rem;}
-</style>
-""",
-    unsafe_allow_html=True,
-)
-
 import plotly.express as px
 colors = px.colors.qualitative.Plotly
-with st.container():
-    st.markdown("<div class='comp-box'>", unsafe_allow_html=True)
+box = st.container()
+box.markdown(
+    """
+    <style>
+    div[data-testid="stVerticalBlock"] {
+        background:#ffffff; border:0.5px solid #d1d5db;
+        border-radius:8px; padding:1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+with box:
     g1, g2 = st.columns([2,1])
     with g1:
         bar = (
@@ -640,7 +641,6 @@ with st.container():
         )
         fig.update_layout(title="Share of visibility (mots-clés filtrés)", margin=dict(l=10,r=10,t=40,b=10), height=420, legend=dict(orientation="v"))
         st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
 
 # ---------------------- Footer / context ---------------------
