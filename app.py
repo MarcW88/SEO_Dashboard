@@ -120,10 +120,11 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-spacer, wf_col, date_col, cmp_col = st.columns([4,1,4,2])
+spacer, wf_col, date_col = st.columns([4,1,4])
 with wf_col:
     with_filters = st.toggle("with filters", value=True)
 with date_col:
+    compare_prev = st.toggle("Comparer période précédente", value=True)
     if with_filters:
         default_start = date.today() - timedelta(days=29)
         date_range = st.date_input(
@@ -136,8 +137,6 @@ with date_col:
         date_range = (fixed_start, date.today())
         st.date_input("", value=date_range, disabled=True, label_visibility="collapsed")
     date_note = st.empty()
-with cmp_col:
-    compare_prev = st.toggle("Comparer période précédente", value=True)
 
 window = (date_range[1] - date_range[0]).days + 1
 start_A, end_d = date_range[0], date_range[1]
