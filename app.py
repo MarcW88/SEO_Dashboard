@@ -21,7 +21,7 @@ LIMIT_RK     = 5000
 INTENTS = {"Informational", "Navigational", "Transactional", "Branding", "Product-branding"}
 
 st.set_page_config(page_title="SEO Coverage — Strategic KPIs", page_icon="🧭", layout="wide")
-st.title("SEO Coverage — KPI (vue stratégique)")
+st.title("Dashboard")
 
 # -------------------- Credentials & HTTP --------------------
 def get_dfs_creds() -> Tuple[str, str]:
@@ -120,23 +120,23 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-colA, colB, colC, colD = st.columns([1,1.3,1,1.2])
-with colA:
+spacer, filt_col = st.columns([5,2])
+with filt_col:
     with_filters = st.toggle("with filters", value=True)
-with colB:
+    compare_prev = st.toggle("Comparer période précédente", value=False)
     if with_filters:
         default_start = date.today() - timedelta(days=29)
-        date_range = st.date_input("Plage de dates", value=(default_start, date.today()))
+        date_range = st.date_input(
+            "",
+            value=(default_start, date.today()),
+            label_visibility="collapsed",
+        )
     else:
         fixed_start = date.today() - timedelta(days=29)
         date_range = (fixed_start, date.today())
-        st.date_input("Plage de dates", value=date_range, disabled=True)
-with colC:
-    window = (date_range[1] - date_range[0]).days + 1
-    st.text_input("Durée (jours)", value=str(window), disabled=True)
-with colD:
-    compare_prev = st.toggle("Comparer période précédente", value=False)
+        st.date_input("", value=date_range, disabled=True, label_visibility="collapsed")
 
+window = (date_range[1] - date_range[0]).days + 1
 start_A, end_d = date_range[0], date_range[1]
 
 # ----------------- Appel DataForSEO --------------------------
@@ -297,7 +297,8 @@ c1_css = """
 div[data-testid="stMetric"], div[data-testid="metric-container"] {
     background: #ffffff;
     border-radius: 8px;
-    padding: 0.5rem 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 0.5px solid #d1d5db;
 }
 div[data-testid="stMetric"] *,
 div[data-testid="metric-container"] * {
@@ -316,7 +317,16 @@ import altair as alt
 import plotly.graph_objects as go
 
 st.divider()
-st.subheader("Vue d’ensemble visuelle")
+st.subheader("Visual overview")
+
+st.markdown(
+    """
+<style>
+.viz-box {background:#ffffff; border-radius:8px; border:0.5px solid #d1d5db; padding:1rem;}
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 if not metrics_df.empty:
     m = metrics_df.iloc[0].to_dict()
@@ -332,6 +342,7 @@ if not metrics_df.empty:
     total_count = int(m.get("count", 0) or 0)
     dist_df["share_%"] = (dist_df["count"] / max(total_count, 1) * 100).round(1)
 
+    st.markdown("<div class='viz-box'>", unsafe_allow_html=True)
     cc1, cc2 = st.columns([2,1])
     with cc1:
         chart = (
@@ -346,11 +357,12 @@ if not metrics_df.empty:
         st.altair_chart(chart, use_container_width=True)
     with cc2:
         st.dataframe(dist_df, use_container_width=True, hide_index=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 else:
     st.caption("Pas de métriques globales disponibles pour dessiner la distribution.")
 
 # ================== RADAR — UI badges + search =================
-st.subheader("Semantic coverage — radar (Top 10 % par thème)")
+st.subheader("Strengths and weaknesses per theme (label)")
 
 # CSS badges & compteur
 st.markdown("""
@@ -368,15 +380,25 @@ if not themes_all:
     themes_all = sorted({primary_theme(v) for v in labels_df["labels"]})
 
 # barre de recherche + multiselect
-t1, t2, t3 = st.columns([2,3,1])
-with t1:
-    q = st.text_input("Rechercher un thème", placeholder="Tape pour filtrer…")
-filtered_options = [t for t in themes_all if (q.lower() in t.lower())] if q else themes_all
-default_themes = [t for t in filtered_options if t != "Unlabeled"] or filtered_options
-with t2:
-    selected_themes = st.multiselect("Sélectionne les thèmes", options=filtered_options, default=default_themes)
-with t3:
-    apply_click = st.button("Appliquer", type="secondary")
+space, filt = st.columns([5,3])
+with filt:
+    t1, t2, t3 = st.columns([1,2,1])
+    with t1:
+        q = st.text_input("Rechercher un thème", placeholder="Tape pour filtrer…")
+    filtered_options = [t for t in themes_all if (q.lower() in t.lower())] if q else themes_all
+    default_themes = [t for t in filtered_options if t != "Unlabeled"] or filtered_options
+    with t2:
+        selected_themes = st.multiselect("Sélectionne les thèmes", options=filtered_options, default=default_themes)
+    with t3:
+        st.markdown(
+            """
+<style>
+div[data-testid='stButton'] > button {background:#f97316; border:1px solid #f97316; color:white;}
+</style>
+""",
+            unsafe_allow_html=True,
+        )
+        apply_click = st.button("Appliquer")
 
 # compteur + badges
 sel_count = len(selected_themes)
@@ -400,19 +422,26 @@ if not theme_A_f.empty:
     r_A = radar_A.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist()
 
     fig = go.Figure()
-    fig.add_trace(go.Scatterpolar(r=r_A, theta=axis, fill='toself', name=f"A ({start_A} → {end_d})"))
-
-    if compare_prev and not theme_B_f.empty:
-        radar_B = theme_B_f.assign(top10_pct=(theme_B_f["top10_ratio"]*100).round(1))
-        axis = sorted(set(axis) | set(radar_B["theme"].unique().tolist()))
+    if compare_prev:
+        radar_B = theme_B_f.assign(top10_pct=(theme_B_f["top10_ratio"]*100).round(1)) if not theme_B_f.empty else pd.DataFrame()
+        axis = sorted(set(axis) | set(radar_B.get("theme", [])))
         r_A = radar_A.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist()
-        r_B = radar_B.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist()
-        fig = go.Figure()
+        r_B = (
+            radar_B.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist()
+            if not radar_B.empty else [0]*len(axis)
+        )
         fig.add_trace(go.Scatterpolar(r=r_A, theta=axis, fill='toself', name=f"A ({start_A} → {end_d})"))
-        fig.add_trace(go.Scatterpolar(
-            r=r_B, theta=axis, fill='toself',
-            name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})", opacity=0.6
-        ))
+        fig.add_trace(
+            go.Scatterpolar(
+                r=r_B,
+                theta=axis,
+                fill='toself',
+                name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
+                opacity=0.6,
+            )
+        )
+    else:
+        fig.add_trace(go.Scatterpolar(r=r_A, theta=axis, fill='toself', name=f"A ({start_A} → {end_d})"))
 
     fig.update_layout(
         polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
@@ -601,45 +630,45 @@ if comp_df.empty:
 # part de visibilité (= part du volume de mots-clés filtrés)
 comp_df["share_%"] = (comp_df["keywords"] / comp_df["keywords"].sum() * 100).round(1)
 
-# ---------- 4) Graphs côte à côte ----------
+st.markdown(
+    """
+<style>
+.comp-box {background:#ffffff; border-radius:8px; border:0.5px solid #d1d5db; padding:1rem;}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+import plotly.express as px
+colors = px.colors.qualitative.Plotly
+st.markdown("<div class='comp-box'>", unsafe_allow_html=True)
 g1, g2 = st.columns([2,1])
 with g1:
-    import altair as alt
     bar = (
         alt.Chart(comp_df)
         .mark_bar()
         .encode(
             x=alt.X("keywords:Q", title="Nombre de mots-clés (filtrés)"),
             y=alt.Y("competitor:N", sort='-x', title=None),
+            color=alt.Color("competitor:N", scale=alt.Scale(range=colors), legend=None),
             tooltip=["competitor","keywords","top10_pct","share_%"]
         ).properties(height=420, title="Pages/keywords concurrents sur les mêmes thèmes")
     )
     st.altair_chart(bar, use_container_width=True)
 
 with g2:
-    import plotly.graph_objects as go
     fig = go.Figure(
         data=[go.Pie(
             labels=comp_df["competitor"].tolist(),
             values=comp_df["keywords"].tolist(),
             hole=0.55,
-            textinfo="percent+label"
+            textinfo="percent+label",
+            marker=dict(colors=colors[: len(comp_df)])
         )]
     )
     fig.update_layout(title="Share of visibility (mots-clés filtrés)", margin=dict(l=10,r=10,t=40,b=10), height=420, legend=dict(orientation="v"))
     st.plotly_chart(fig, use_container_width=True)
-
-# ---------- 5) Tableau récap (une seule ligne visuelle sous les 2 charts) ----------
-st.dataframe(
-    comp_df.rename(columns={
-        "competitor":"Domaine concurrent",
-        "keywords":"# Mots-clés (filtrés)",
-        "top10_pct":"Top 10 %",
-        "share_%":"Part %"
-    }),
-    use_container_width=True,
-    hide_index=True
-)
+st.markdown("</div>", unsafe_allow_html=True)
 
 
 # ---------------------- Footer / context ---------------------
