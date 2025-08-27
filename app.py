@@ -252,7 +252,7 @@ def match_items_to_labels(items: pd.DataFrame, labels: pd.DataFrame, thr: float 
             cand_idx.update(bucket.get(t, []))
         best_i, best_score = None, 0.0
         for i in (cand_idx or range(len(lab))):
-ltoks = lab.loc[i, "tokens"]
+            ltoks = lab.loc[i, "tokens"]
 
             if not ltoks: continue
             inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
@@ -560,12 +560,13 @@ def best_label_idx_for_kw_tokens(rtoks:set, thr:float=0.6) -> Optional[int]:
         cand_idx.update(bucket.get(t, []))
     best_i, best_score = None, 0.0
     for i in (cand_idx or range(len(lab_idx))):
-ltoks = lab.loc[i, "tokens"]
+        ltoks = lab_idx.loc[i, "tokens"]
 
-        if not ltoks: continue
+        if not ltoks:
+            continue
         inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
         jacc = inter/union if union else 0.0
-        contains = min(inter/len(ltoks), inter/len(rtoks)) if inter>=2 else 0.0
+        contains = min(inter/len(ltoks), inter/len(rtoks)) if inter >= 2 else 0.0
         score = max(jacc, contains)
         if score > best_score:
             best_score, best_i = score, i
