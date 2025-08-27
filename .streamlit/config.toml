@@ -1,11 +1,5 @@
+
 # .streamlit/config.toml
-[theme]
-base = "light"                     # force le mode clair (pas "System")
-primaryColor = "#0B8A65"
-backgroundColor = "#F7F4EB"        # fond page
-secondaryBackgroundColor = "#F7F4EB" # fond sidebar/cartes
-textColor = "#111111"
-font = "sans serif"
 
 [browser]
 gatherUsageStats = false           # évite l’écriture du machine_id
