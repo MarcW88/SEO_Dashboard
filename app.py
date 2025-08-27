@@ -20,7 +20,19 @@ LIMIT_RK     = 5000
 
 INTENTS = {"Informational", "Navigational", "Transactional", "Branding", "Product-branding"}
 
-st.set_page_config(page_title="SEO Coverage — Strategic KPIs", page_icon="🧭", layout="wide")
+st.set_page_config(
+    page_title="SEO Coverage — Strategic KPIs",
+    page_icon="🧭",
+    layout="wide",
+    theme={
+        "base": "light",
+        "primaryColor": "#0B8A65",
+        "backgroundColor": "#F7F4EB",
+        "secondaryBackgroundColor": "#FFFFFF",
+        "textColor": "#111111",
+        "font": "sans serif",
+    },
+)
 st.title("Dashboard")
 
 # -------------------- Credentials & HTTP --------------------
@@ -128,14 +140,14 @@ with date_col:
     if with_filters:
         default_start = date.today() - timedelta(days=29)
         date_range = st.date_input(
-            "",
+            "Période",
             value=(default_start, date.today()),
             label_visibility="collapsed",
         )
     else:
         fixed_start = date.today() - timedelta(days=29)
         date_range = (fixed_start, date.today())
-        st.date_input("", value=date_range, disabled=True, label_visibility="collapsed")
+        st.date_input("Période", value=date_range, disabled=True, label_visibility="collapsed")
     date_note = st.empty()
 
 window = (date_range[1] - date_range[0]).days + 1
