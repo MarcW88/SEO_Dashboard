@@ -1,7 +1,7 @@
 ---
 title: SEO Dashboard
 emoji: 🏃
-colorFrom: brown
+colorFrom: indigo
 colorTo: blue
 sdk: docker
 sdk_version: 5.42.0
