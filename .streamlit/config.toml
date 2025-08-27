@@ -3,7 +3,6 @@
 base = "light"                     # force le mode clair (pas "System")
 primaryColor = "#0B8A65"
 backgroundColor = "#F7F4EB"        # fond page
-secondaryBackgroundColor = "#FFFFFF" # fond sidebar/cartes
 textColor = "#111111"
 font = "sans serif"
 
