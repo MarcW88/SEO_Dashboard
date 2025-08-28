@@ -53,13 +53,14 @@ def _auth_headers(login: str, password: str) -> dict:
     return {"Authorization": f"Basic {tok}", "Content-Type": "application/json"}
 
 def safe_post(url: str, headers: dict, payload: list, timeout: int = 90) -> dict:
+    r = None
     try:
         r = requests.post(url, headers=headers, data=json.dumps(payload), timeout=timeout)
         r.raise_for_status()
         return r.json()
     except Exception as e:
         try:
-            err = r.json()
+            err = r.json() if r is not None else str(e)
         except Exception:
             err = str(e)
         st.error(f"API error on {url}: {err}")
