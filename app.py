@@ -394,50 +394,62 @@ theme_A_f = theme_A
 theme_B_f = theme_B if compare_prev else pd.DataFrame()
 
 if not theme_A_f.empty:
-    radar_A = theme_A_f.assign(top10_pct=(theme_A_f["top10_ratio"]*100).round(1))
-    axis = sorted(radar_A["theme"].unique().tolist())
-    if compare_prev:
-        radar_B = theme_B_f.assign(top10_pct=(theme_B_f["top10_ratio"]*100).round(1)) if not theme_B_f.empty else pd.DataFrame()
-        axis = sorted(set(axis) | set(radar_B.get("theme", [])))
-    r_A = radar_A.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist()
-    if compare_prev:
-        r_B = radar_B.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist() if not radar_B.empty else [0]*len(axis)
-    else:
-        r_B = [0]*len(axis)
+    axis = sorted(
+        set(theme_A_f.get("theme", [])) | set(theme_B_f.get("theme", []))
+    )
 
-    fig = go.Figure()
-    fig.add_trace(
+    def build_r(df: pd.DataFrame) -> list[float]:
+        radar = df.assign(top10_pct=(df["top10_ratio"] * 100).round(1)) if not df.empty else pd.DataFrame()
+        return radar.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist() if not radar.empty else [0] * len(axis)
+
+    r_curr = build_r(theme_A_f)
+    r_prev = build_r(theme_B_f)
+
+    fig_curr = go.Figure(
         go.Scatterpolar(
-            r=r_A,
+            r=r_curr,
             theta=axis,
             fill="toself",
-            name=f"A ({start_A} → {end_d})",
             line_color="#1f77b4",
             fillcolor="rgba(31,119,180,0.3)",
+            name=f"A ({start_A} → {end_d})",
         )
     )
-    fig.add_trace(
+    fig_prev = go.Figure(
         go.Scatterpolar(
-            r=r_B,
+            r=r_prev,
             theta=axis,
             fill="toself",
-            name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
             line_color="#ff7f0e",
             fillcolor="rgba(255,127,14,0.3)",
+            name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
         )
     )
 
-    fig.update_layout(
-        polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
-        showlegend=True,
-        margin=dict(l=20, r=20, t=10, b=20),
-        height=420,
-        paper_bgcolor="white",
-        plot_bgcolor="white",
-    )
-    st.plotly_chart(fig, use_container_width=True)
+    for fig in (fig_prev, fig_curr):
+        fig.update_layout(
+            polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
+            showlegend=False,
+            margin=dict(l=20, r=20, t=10, b=20),
+            height=420,
+            paper_bgcolor="white",
+            plot_bgcolor="white",
+        )
+
+    col_prev, col_curr = st.columns(2)
+    with col_prev:
+        st.markdown("**Période précédente**")
+        if theme_B_f.empty:
+            st.caption("Pas de données pour la période précédente.")
+        else:
+            st.plotly_chart(fig_prev, use_container_width=True)
+    with col_curr:
+        st.markdown("**Période actuelle**")
+        st.plotly_chart(fig_curr, use_container_width=True)
 else:
-    st.caption("Pas assez de correspondances items ↔ labels pour construire le radar (overlap insuffisant).")
+    st.caption(
+        "Pas assez de correspondances items ↔ labels pour construire le radar (overlap insuffisant)."
+    )
 
     # ========================= CONCURRENCE =========================
 st.divider()
