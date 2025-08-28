@@ -1,11 +1,13 @@
 # app.py — Vue stratégique (KPI globaux DataForSEO + meilleur thème via tes labels)
 # Menus "pills" au-dessus des KPI + multiselect "badges" au-dessus du radar
+# + Fond global beige, sections en cartes blanches (plus de style global intrusif)
 
 import os, json, time, unicodedata, re
 from pathlib import Path
 from urllib.parse import urlparse
 from typing import List, Tuple, Optional
 from datetime import date, timedelta
+from contextlib import contextmanager
 
 import pandas as pd
 import requests
@@ -27,6 +29,38 @@ st.set_page_config(
     layout="wide",
 )
 st.title("Dashboard")
+
+# ============== THEME: fond beige global + cartes blanches ==============
+st.markdown("""
+<style>
+/* Fond global (page + sidebar) */
+.stApp { background: #F6F4EA !important; }
+[data-testid="stSidebar"] { background: #F6F4EA !important; }
+header, .stToolbar { background: transparent !important; }
+
+/* Carte locale (sections blanches) */
+.card {
+  background:#ffffff; border:0.5px solid #d1d5db;
+  border-radius:12px; padding:1rem;
+}
+
+/* KPI cards */
+div[data-testid="stMetric"], div[data-testid="metric-container"] {
+  background:#ffffff; border-radius:12px; padding:1.25rem 1.5rem; border:0.5px solid #d1d5db;
+}
+div[data-testid="stMetricValue"] { font-size: 2rem; }
+</style>
+""", unsafe_allow_html=True)
+
+@contextmanager
+def card(title: Optional[str] = None):
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    if title:
+        st.markdown(f"**{title}**")
+    try:
+        yield
+    finally:
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # -------------------- Credentials & HTTP --------------------
 def get_dfs_creds() -> Tuple[str, str]:
@@ -119,9 +153,10 @@ labels_df["kw_norm2"] = labels_df["keyword"].apply(normalize_kw_strict)
 
 # ------------------ Screaming Frog URL categories -----------------
 st.subheader("URL categories from Screaming Frog")
-uploaded_sf = st.file_uploader(
-    "Export Screaming Frog", type=["csv", "xls", "xlsx"], help="Fichier 'Internal: All'."
-)
+with card():
+    uploaded_sf = st.file_uploader(
+        "Export Screaming Frog", type=["csv", "xls", "xlsx"], help="Fichier 'Internal: All'."
+    )
 
 def _infer_category(url: str) -> str:
     p = urlparse(url)
@@ -153,8 +188,8 @@ sf_mapping = {}
 if uploaded_sf:
     sf_df = _load_sf(uploaded_sf)
     if not sf_df.empty:
-        st.info("Corrige les catégories si besoin.")
-        edited = st.data_editor(sf_df, num_rows="dynamic", hide_index=True)
+        with card("Édite les catégories si besoin :"):
+            edited = st.data_editor(sf_df, num_rows="dynamic", hide_index=True)
         sf_mapping = dict(zip(edited["url"], edited["category"]))
 
         from collections import defaultdict
@@ -168,8 +203,8 @@ if uploaded_sf:
             return {c: "^(" + "|".join(sorted(pths)) + ")" for c, pths in buckets.items()}
 
         st.session_state["gsc_regex_rules"] = _build_regex(sf_mapping)
-        st.caption("Règles regex enregistrées pour Google Search Console.")
-        st.json(st.session_state["gsc_regex_rules"], expanded=False)
+        with card("Règles regex enregistrées pour GSC"):
+            st.json(st.session_state["gsc_regex_rules"], expanded=False)
 
 # ======================= UI — PÉRIODE (pills) =======================
 st.markdown("""
@@ -318,7 +353,6 @@ def match_items_to_labels(items: pd.DataFrame, labels: pd.DataFrame, thr: float 
         best_i, best_score = None, 0.0
         for i in (cand_idx or range(len(lab))):
             ltoks = lab.loc[i, "tokens"]
-
             if not ltoks: continue
             inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
             jacc = inter / union if union else 0.0
@@ -357,63 +391,33 @@ if not matches_A.empty:
         best_theme = str(agg.iloc[0]["theme"])
 
 # -------------------- KPI CARDS -------------------------------
-c1_css = """
-<style>
-div[data-testid="stMetric"], div[data-testid="metric-container"] {
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 1.25rem 1.5rem;
-    border: 0.5px solid #d1d5db;
-}
-div[data-testid="stMetric"] *,
-div[data-testid="metric-container"] * {
-    color: #000000 !important;
-    font-size: 1.1rem;
-}
-div[data-testid="stMetricValue"] {
-    font-size: 2rem;
-}
-</style>
-"""
-st.markdown(c1_css, unsafe_allow_html=True)
-c1, c2, c3 = st.columns(3)
-c1.metric("Couverture Top 10 (global)", f"{pct_top10:.1f} %", help=f"Période: {start_A} → {end_d}")
-c2.metric("Potentiel 11–20 (global)", f"{pct_11_20:.1f} %", help=f"Période: {start_A} → {end_d}")
-c3.metric("Thème le mieux couvert", best_theme)
+with card():
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Couverture Top 10 (global)", f"{pct_top10:.1f} %", help=f"Période: {start_A} → {end_d}")
+    c2.metric("Potentiel 11–20 (global)", f"{pct_11_20:.1f} %", help=f"Période: {start_A} → {end_d}")
+    c3.metric("Thème le mieux couvert", best_theme)
 
 # === VISUELS — Distribution ================================
 import altair as alt
 import plotly.graph_objects as go
+import plotly.express as px
 
-st.divider()
 st.subheader("Keyword distribution")
-if not metrics_df.empty:
-    m = metrics_df.iloc[0].to_dict()
-    buckets = {
-        "Top 1": int(m.get("pos_1", 0) or 0),
-        "Top 2–3": int(m.get("pos_2_3", 0) or 0),
-        "Top 4–10": int(m.get("pos_4_10", 0) or 0),
-        "Top 11–20": int(m.get("pos_11_20", 0) or 0),
-        "Top 21–50": int(m.get("pos_21_50", 0) or 0),
-        "Top 51–100": int(m.get("pos_51_100", 0) or 0),
-    }
-    dist_df = pd.DataFrame({"bucket": list(buckets.keys()), "count": list(buckets.values())})
-    total_count = int(m.get("count", 0) or 0)
-    dist_df["share_%"] = (dist_df["count"] / max(total_count, 1) * 100).round(1)
-
-    box = st.container()
-    box.markdown(
-        """
-        <style>
-        div[data-testid="stVerticalBlock"] {
-            background:#ffffff; border:0.5px solid #d1d5db;
-            border-radius:8px; padding:1rem;
+with card():
+    if not metrics_df.empty:
+        m = metrics_df.iloc[0].to_dict()
+        buckets = {
+            "Top 1": int(m.get("pos_1", 0) or 0),
+            "Top 2–3": int(m.get("pos_2_3", 0) or 0),
+            "Top 4–10": int(m.get("pos_4_10", 0) or 0),
+            "Top 11–20": int(m.get("pos_11_20", 0) or 0),
+            "Top 21–50": int(m.get("pos_21_50", 0) or 0),
+            "Top 51–100": int(m.get("pos_51_100", 0) or 0),
         }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    with box:
+        dist_df = pd.DataFrame({"bucket": list(buckets.keys()), "count": list(buckets.values())})
+        total_count = int(m.get("count", 0) or 0)
+        dist_df["share_%"] = (dist_df["count"] / max(total_count, 1) * 100).round(1)
+
         cc1, cc2 = st.columns([2,1])
         with cc1:
             chart = (
@@ -430,352 +434,301 @@ if not metrics_df.empty:
             )
             st.altair_chart(chart, use_container_width=True)
         with cc2:
-            st.dataframe(
-                dist_df.style.set_properties(**{"background-color": "#ffffff"}),
-                use_container_width=True,
-                hide_index=True,
-            )
-else:
-    st.caption("Pas de métriques globales disponibles pour dessiner la distribution.")
+            st.dataframe(dist_df, use_container_width=True, hide_index=True)
+    else:
+        st.caption("Pas de métriques globales disponibles pour dessiner la distribution.")
 
 # ================== RADAR — Themes overview =================
 st.subheader("Strengths and weaknesses per theme (label)")
+with card():
+    themes_all = sorted(theme_A["theme"].unique().tolist() if not theme_A.empty else [])
+    if not themes_all:
+        themes_all = sorted({primary_theme(v) for v in labels_df["labels"]})
 
-themes_all = sorted(theme_A["theme"].unique().tolist() if not theme_A.empty else [])
-if not themes_all:
-    themes_all = sorted({primary_theme(v) for v in labels_df["labels"]})
+    theme_A_f = theme_A
+    theme_B_f = theme_B if compare_prev else pd.DataFrame()
 
-theme_A_f = theme_A
-theme_B_f = theme_B if compare_prev else pd.DataFrame()
+    if not theme_A_f.empty:
+        axis = sorted(set(theme_A_f.get("theme", [])) | set(theme_B_f.get("theme", [])))
 
-if not theme_A_f.empty:
-    axis = sorted(
-        set(theme_A_f.get("theme", [])) | set(theme_B_f.get("theme", []))
-    )
+        def build_r(df: pd.DataFrame) -> list[float]:
+            radar = df.assign(top10_pct=(df["top10_ratio"] * 100).round(1)) if not df.empty else pd.DataFrame()
+            return radar.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist() if not radar.empty else [0] * len(axis)
 
-    def build_r(df: pd.DataFrame) -> list[float]:
-        radar = df.assign(top10_pct=(df["top10_ratio"] * 100).round(1)) if not df.empty else pd.DataFrame()
-        return radar.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist() if not radar.empty else [0] * len(axis)
+        r_curr = build_r(theme_A_f)
+        r_prev = build_r(theme_B_f)
 
-    r_curr = build_r(theme_A_f)
-    r_prev = build_r(theme_B_f)
-
-    fig_curr = go.Figure(
-        go.Scatterpolar(
-            r=r_curr,
-            theta=axis,
-            fill="toself",
-            line_color="#1f77b4",
-            fillcolor="rgba(31,119,180,0.3)",
-            name=f"A ({start_A} → {end_d})",
+        fig_curr = go.Figure(
+            go.Scatterpolar(
+                r=r_curr, theta=axis, fill="toself",
+                line_color="#1f77b4", fillcolor="rgba(31,119,180,0.3)",
+                name=f"A ({start_A} → {end_d})",
+            )
         )
-    )
-    fig_prev = go.Figure(
-        go.Scatterpolar(
-            r=r_prev,
-            theta=axis,
-            fill="toself",
-            line_color="#ff7f0e",
-            fillcolor="rgba(255,127,14,0.3)",
-            name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
+        fig_prev = go.Figure(
+            go.Scatterpolar(
+                r=r_prev, theta=axis, fill="toself",
+                line_color="#ff7f0e", fillcolor="rgba(255,127,14,0.3)",
+                name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
+            )
         )
-    )
+        for fig in (fig_prev, fig_curr):
+            fig.update_layout(
+                polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
+                showlegend=False, margin=dict(l=20, r=20, t=10, b=20),
+                height=420, paper_bgcolor="white", plot_bgcolor="white",
+            )
 
-    for fig in (fig_prev, fig_curr):
-        fig.update_layout(
-            polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
-            showlegend=False,
-            margin=dict(l=20, r=20, t=10, b=20),
-            height=420,
-            paper_bgcolor="white",
-            plot_bgcolor="white",
-        )
+        col_prev, col_curr = st.columns(2)
+        with col_prev:
+            st.markdown("**Période précédente**")
+            if theme_B_f.empty:
+                st.caption("Pas de données pour la période précédente.")
+            else:
+                st.plotly_chart(fig_prev, use_container_width=True)
+        with col_curr:
+            st.markdown("**Période actuelle**")
+            st.plotly_chart(fig_curr, use_container_width=True)
+    else:
+        st.caption("Pas assez de correspondances items ↔ labels pour construire le radar (overlap insuffisant).")
 
-    col_prev, col_curr = st.columns(2)
-    with col_prev:
-        st.markdown("**Période précédente**")
-        if theme_B_f.empty:
-            st.caption("Pas de données pour la période précédente.")
-        else:
-            st.plotly_chart(fig_prev, use_container_width=True)
-    with col_curr:
-        st.markdown("**Période actuelle**")
-        st.plotly_chart(fig_curr, use_container_width=True)
-else:
-    st.caption(
-        "Pas assez de correspondances items ↔ labels pour construire le radar (overlap insuffisant)."
-    )
-
-    # ========================= CONCURRENCE =========================
-st.divider()
+# ========================= CONCURRENCE =========================
 st.subheader("Competition analysis")
+with card():
+    # ---------- 1) UI : labels + sélection de concurrents ----------
+    themes_all_comp = sorted(theme_A["theme"].unique().tolist() if not theme_A.empty else [])
+    if not themes_all_comp:
+        themes_all_comp = sorted({primary_theme(v) for v in labels_df["labels"]})
+    default_themes_comp = [t for t in themes_all_comp if t != "Unlabeled"] or themes_all_comp
 
-# ---------- Google Search Console ----------
-site_url = f"https://{target_domain}/"
-gsc_dates = query_search_console(
-    site_url,
-    start_A.strftime("%Y-%m-%d"),
-    end_d.strftime("%Y-%m-%d"),
-    dimensions=["date"],
-)
-if not gsc_dates.empty:
-    st.line_chart(gsc_dates.set_index("date")[["clicks", "impressions", "ctr", "position"]])
-else:
-    st.info("Aucune donnée Search Console pour cette période.")
-
-gsc_pages = query_search_console(
-    site_url,
-    start_A.strftime("%Y-%m-%d"),
-    end_d.strftime("%Y-%m-%d"),
-    dimensions=["page"],
-)
-if not gsc_pages.empty:
-    st.caption("Regex → catégorie (format: `regex -> catégorie`)")
-    cat_text = st.text_area(" ", height=120, key="regex_map")
-    patterns = []
-    for line in cat_text.splitlines():
-        if "->" in line:
-            rgx, cat = map(str.strip, line.split("->", 1))
-            if rgx and cat:
-                try:
-                    patterns.append((re.compile(rgx), cat))
-                except re.error:
-                    pass
-    if patterns:
-        gsc_pages["category"] = "Autres"
-        for rgx, cat in patterns:
-            gsc_pages.loc[gsc_pages["page"].str.contains(rgx), "category"] = cat
-        agg = (
-            gsc_pages.groupby("category")
-            .agg({"clicks": "sum", "impressions": "sum", "position": "mean"})
-            .reset_index()
+    comp_main, comp_filters = st.columns([3,2])
+    with comp_main:
+        st.caption("Concurrents (une URL ou un domaine par ligne)")
+        comp_text = st.text_area(" ", value="", height=90)
+    with comp_filters:
+        use_suggest = st.toggle("Suggérer", value=True, help="Ajoute les concurrents organiques DataForSEO (Top 10–15).")
+        comp_sel_themes = st.multiselect(
+            "Filtrer par labels (thèmes)",
+            options=themes_all_comp,
+            default=default_themes_comp,
+            help="Les stats concurrence ne prennent en compte que ces thèmes.",
         )
-        agg["ctr"] = (agg["clicks"] / agg["impressions"]).fillna(0)
-        agg = agg[["category", "clicks", "impressions", "ctr", "position"]]
-        st.dataframe(agg.round(2))
-        st.bar_chart(agg.set_index("category")[["clicks", "impressions"]])
 
-
-# ---------- 1) UI : labels + sélection de concurrents ----------
-# options de labels/thèmes (comme pour le radar)
-themes_all_comp = sorted(theme_A["theme"].unique().tolist() if not theme_A.empty else [])
-if not themes_all_comp:
-    themes_all_comp = sorted({primary_theme(v) for v in labels_df["labels"]})
-default_themes_comp = [t for t in themes_all_comp if t != "Unlabeled"] or themes_all_comp
-
-comp_main, comp_filters = st.columns([3,2])
-with comp_main:
-    st.caption("Concurrents (une URL ou un domaine par ligne)")
-    comp_text = st.text_area(
-        " ",
-        value="",
-        height=90
-    )
-with comp_filters:
-    use_suggest = st.toggle("Suggérer", value=True, help="Ajoute les concurrents organiques DataForSEO (Top 10–15).")
-    comp_sel_themes = st.multiselect(
-        "Filtrer par labels (thèmes)",
-        options=themes_all_comp,
-        default=default_themes_comp,
-        help="Les stats concurrence ne prennent en compte que ces thèmes.",
-    )
-
-# ---------- 2) DataForSEO : suggestion de concurrents ----------
-@st.cache_data(show_spinner=True, ttl=3600)
-def fetch_competitors(target_root: str, location_code: int, language_code: str, limit:int=15) -> list[str]:
-    url = f"{API_BASE}/dataforseo_labs/google/competitors_domain/live"
-    payload = [{
-        "target": target_root,
-        "location_code": location_code,
-        "language_code": language_code,
-        "limit": limit
-    }]
-    data = safe_post(url, headers, payload, timeout=60)
-    out = []
-    for task in (data.get("tasks") or []):
-        for res in (task.get("result") or []):
-            for it in (res.get("items") or []):
-                dom = (it.get("domain") or "").lower().strip()
-                if dom and dom != target_root:
-                    out.append(dom)
-    # dédoublonne en gardant l'ordre
-    dedup = []
-    for d in out:
-        if d not in dedup: dedup.append(d)
-    return dedup
-
-suggested = fetch_competitors(target_domain, LOCATION_CODE, LANGUAGE_CODE) if use_suggest else []
-# parse saisie manuelle
-manual = []
-for line in (comp_text or "").splitlines():
-    line = line.strip()
-    if not line: continue
-    # accepte url complète ou domaine
-    try:
-        host = urlparse(line if line.startswith("http") else "https://" + line).netloc.lower().strip()
-        manual.append(host[4:] if host.startswith("www.") else host)
-    except Exception:
-        pass
-
-# sélection finale (max 10, pour éviter trop d’appels API)
-competitors = []
-for d in manual + suggested:
-    if d not in competitors and d != target_domain:
-        competitors.append(d)
-competitors = competitors[:10]
-
-# feedback UI
-if competitors:
-    st.caption("Concurrents utilisés : " + ", ".join(competitors))
-else:
-    st.info("Ajoute des concurrents (ou active *Suggérer*).")
-    st.stop()
-
-# ---------- 3) Récup des keywords concurrents + attribution label ----------
-@st.cache_data(show_spinner=True, ttl=3600)
-def fetch_comp_ranked_keywords(domain: str, location_code: int, language_code: str, limit: int = 1500):
-    """Retourne DataFrame rk_keyword, rank_absolute pour un domaine donné."""
-    url = f"{API_BASE}/dataforseo_labs/google/ranked_keywords/live"
-    rows, offset = [], 0
-    while offset < limit:
-        step = min(1000, limit - offset)
+    # ---------- 2) DataForSEO : suggestion de concurrents ----------
+    @st.cache_data(show_spinner=True, ttl=3600)
+    def fetch_competitors(target_root: str, location_code: int, language_code: str, limit:int=15) -> list[str]:
+        url = f"{API_BASE}/dataforseo_labs/google/competitors_domain/live"
         payload = [{
-            "target": domain,
+            "target": target_root,
             "location_code": location_code,
             "language_code": language_code,
-            "ignore_synonyms": False,
-            "include_clickstream_data": False,
-            "load_rank_absolute": True,
-            "limit": step,
-            "offset": offset
+            "limit": limit
         }]
-        data = safe_post(url, headers, payload, timeout=90)
-        got = 0
+        data = safe_post(url, headers, payload, timeout=60)
+        out = []
         for task in (data.get("tasks") or []):
             for res in (task.get("result") or []):
                 for it in (res.get("items") or []):
-                    kw = ((it.get("keyword_data") or {}).get("keyword"))
-                    rank = ((it.get("ranked_serp_element") or {}).get("rank_absolute"))
-                    if kw is not None:
-                        rows.append({"rk_keyword": kw, "rank_absolute": rank})
-                        got += 1
-        if got == 0: break
-        offset += got
-        time.sleep(0.12)
-    df = pd.DataFrame(rows).drop_duplicates(subset=["rk_keyword"])
-    if not df.empty:
-        df["rk_norm2"] = df["rk_keyword"].apply(normalize_kw_strict)
-    return df
+                    dom = (it.get("domain") or "").lower().strip()
+                    if dom and dom != target_root:
+                        out.append(dom)
+        dedup = []
+        for d in out:
+            if d not in dedup: dedup.append(d)
+        return dedup
 
-# pré-calculs labels (index pour matching)
-lab_idx = labels_df.copy()
-lab_idx["tokens"] = lab_idx["keyword"].apply(tok_norm)
+    suggested = fetch_competitors(target_domain, LOCATION_CODE, LANGUAGE_CODE) if use_suggest else []
+    manual = []
+    for line in (comp_text or "").splitlines():
+        line = line.strip()
+        if not line: continue
+        try:
+            host = urlparse(line if line.startswith("http") else "https://" + line).netloc.lower().strip()
+            manual.append(host[4:] if host.startswith("www.") else host)
+        except Exception:
+            pass
 
-from collections import defaultdict
-bucket = defaultdict(list)
-for i, row in lab_idx.iterrows():
-    for t in list(row["tokens"])[:3]:
-        bucket[t].append(i)
+    competitors = []
+    for d in manual + suggested:
+        if d not in competitors and d != target_domain:
+            competitors.append(d)
+    competitors = competitors[:10]
 
-def best_label_idx_for_kw_tokens(rtoks:set, thr:float=0.6) -> Optional[int]:
-    if not rtoks: return None
-    cand_idx = set()
-    for t in list(rtoks)[:3]:
-        cand_idx.update(bucket.get(t, []))
-    best_i, best_score = None, 0.0
-    for i in (cand_idx or range(len(lab_idx))):
-        ltoks = lab_idx.loc[i, "tokens"]
+    if competitors:
+        st.caption("Concurrents utilisés : " + ", ".join(competitors))
+    else:
+        st.info("Ajoute des concurrents (ou active *Suggérer*).")
+        st.stop()
 
-        if not ltoks:
+    # ---------- 3) Récup des keywords concurrents + attribution label ----------
+    @st.cache_data(show_spinner=True, ttl=3600)
+    def fetch_comp_ranked_keywords(domain: str, location_code: int, language_code: str, limit: int = 1500):
+        url = f"{API_BASE}/dataforseo_labs/google/ranked_keywords/live"
+        rows, offset = [], 0
+        while offset < limit:
+            step = min(1000, limit - offset)
+            payload = [{
+                "target": domain,
+                "location_code": location_code,
+                "language_code": language_code,
+                "ignore_synonyms": False,
+                "include_clickstream_data": False,
+                "load_rank_absolute": True,
+                "limit": step,
+                "offset": offset
+            }]
+            data = safe_post(url, headers, payload, timeout=90)
+            got = 0
+            for task in (data.get("tasks") or []):
+                for res in (task.get("result") or []):
+                    for it in (res.get("items") or []):
+                        kw = ((it.get("keyword_data") or {}).get("keyword"))
+                        rank = ((it.get("ranked_serp_element") or {}).get("rank_absolute"))
+                        if kw is not None:
+                            rows.append({"rk_keyword": kw, "rank_absolute": rank})
+                            got += 1
+            if got == 0: break
+            offset += got
+            time.sleep(0.12)
+        df = pd.DataFrame(rows).drop_duplicates(subset=["rk_keyword"])
+        if not df.empty:
+            df["rk_norm2"] = df["rk_keyword"].apply(normalize_kw_strict)
+        return df
+
+    # pré-calculs labels (index pour matching)
+    lab_idx = labels_df.copy()
+    lab_idx["tokens"] = lab_idx["keyword"].apply(tok_norm)
+
+    from collections import defaultdict
+    bucket = defaultdict(list)
+    for i, row in lab_idx.iterrows():
+        for t in list(row["tokens"])[:3]:
+            bucket[t].append(i)
+
+    def best_label_idx_for_kw_tokens(rtoks:set, thr:float=0.6) -> Optional[int]:
+        if not rtoks: return None
+        cand_idx = set()
+        for t in list(rtoks)[:3]:
+            cand_idx.update(bucket.get(t, []))
+        best_i, best_score = None, 0.0
+        for i in (cand_idx or range(len(lab_idx))):
+            ltoks = lab_idx.loc[i, "tokens"]
+            if not ltoks:
+                continue
+            inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
+            jacc = inter/union if union else 0.0
+            contains = min(inter/len(ltoks), inter/len(rtoks)) if inter >= 2 else 0.0
+            score = max(jacc, contains)
+            if score > best_score:
+                best_score, best_i = score, i
+        return best_i if (best_i is not None and best_score >= 0.6) else None
+
+    rows = []
+    for dom in competitors:
+        dfc = fetch_comp_ranked_keywords(dom, LOCATION_CODE, LANGUAGE_CODE, limit=1500)
+        if dfc.empty:
+            rows.append({"competitor": dom, "keywords": 0, "top10_pct": 0.0})
             continue
-        inter = len(rtoks & ltoks); union = len(rtoks | ltoks)
-        jacc = inter/union if union else 0.0
-        contains = min(inter/len(ltoks), inter/len(rtoks)) if inter >= 2 else 0.0
-        score = max(jacc, contains)
-        if score > best_score:
-            best_score, best_i = score, i
-    return best_i if (best_i is not None and best_score >= 0.6) else None
+        dfc["tokens"] = dfc["rk_keyword"].apply(tok_norm)
+        lbl_idx = dfc["tokens"].apply(best_label_idx_for_kw_tokens)
+        dfc["theme"] = lbl_idx.apply(lambda i: primary_theme(lab_idx.loc[i, "labels"]) if pd.notna(i) else "Unlabeled")
+        dfc = dfc[dfc["theme"].isin(comp_sel_themes or dfc["theme"].unique())]
+        if dfc.empty:
+            rows.append({"competitor": dom, "keywords": 0, "top10_pct": 0.0})
+            continue
+        kcount = int(dfc.shape[0])
+        top10 = float((dfc["rank_absolute"].le(10)).mean()*100.0)
+        rows.append({"competitor": dom, "keywords": kcount, "top10_pct": round(top10,1)})
 
-# calcule les stats par concurrent / thèmes sélectionnés
-rows = []
-for dom in competitors:
-    dfc = fetch_comp_ranked_keywords(dom, LOCATION_CODE, LANGUAGE_CODE, limit=1500)
-    if dfc.empty:
-        rows.append({"competitor": dom, "keywords": 0, "top10_pct": 0.0})
-        continue
-    dfc["tokens"] = dfc["rk_keyword"].apply(tok_norm)
-    # map vers theme
-    lbl_idx = dfc["tokens"].apply(best_label_idx_for_kw_tokens)
-    dfc["theme"] = lbl_idx.apply(lambda i: primary_theme(lab_idx.loc[i, "labels"]) if pd.notna(i) else "Unlabeled")
-    # filtre thèmes choisis
-    dfc = dfc[dfc["theme"].isin(comp_sel_themes or dfc["theme"].unique())]
-    if dfc.empty:
-        rows.append({"competitor": dom, "keywords": 0, "top10_pct": 0.0})
-        continue
-    # KPIs
-    kcount = int(dfc.shape[0])
-    top10 = float((dfc["rank_absolute"].le(10)).mean()*100.0)
-    rows.append({"competitor": dom, "keywords": kcount, "top10_pct": round(top10,1)})
+    comp_df = pd.DataFrame(rows).sort_values("keywords", ascending=False)
+    if comp_df.empty:
+        st.warning("Aucune donnée concurrent pour ces labels.")
+    else:
+        comp_df["share_%"] = (comp_df["keywords"] / comp_df["keywords"].sum() * 100).round(1)
+        colors = px.colors.qualitative.Plotly
 
-comp_df = pd.DataFrame(rows).sort_values("keywords", ascending=False)
-if comp_df.empty:
-    st.warning("Aucune donnée concurrent pour ces labels.")
-    st.stop()
-
-# part de visibilité (= part du volume de mots-clés filtrés)
-comp_df["share_%"] = (comp_df["keywords"] / comp_df["keywords"].sum() * 100).round(1)
-import plotly.express as px
-colors = px.colors.qualitative.Plotly
-box = st.container()
-box.markdown(
-    """
-    <style>
-    div[data-testid="stVerticalBlock"] {
-        background:#ffffff; border:0.5px solid #d1d5db;
-        border-radius:8px; padding:1rem;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-with box:
-    g1, g2 = st.columns([2,1])
-    with g1:
-        bar = (
-            alt.Chart(comp_df)
-            .mark_bar()
-            .encode(
-                x=alt.X("keywords:Q", title="Nombre de mots-clés (filtrés)"),
-                y=alt.Y("competitor:N", sort='-x', title=None),
-                color=alt.Color("competitor:N", scale=alt.Scale(range=colors), legend=None),
-                tooltip=["competitor","keywords","top10_pct","share_%"]
+        g1, g2 = st.columns([2,1])
+        with g1:
+            bar = (
+                alt.Chart(comp_df)
+                .mark_bar()
+                .encode(
+                    x=alt.X("keywords:Q", title="Nombre de mots-clés (filtrés)"),
+                    y=alt.Y("competitor:N", sort='-x', title=None),
+                    color=alt.Color("competitor:N", scale=alt.Scale(range=colors), legend=None),
+                    tooltip=["competitor","keywords","top10_pct","share_%"]
+                )
+                .properties(height=420, title="Mots-clés concurrents sur les mêmes thèmes")
+                .configure(background="white")
+                .configure_view(fill="white")
             )
-            .properties(height=420, title="Pages/keywords concurrents sur les mêmes thèmes")
-            .configure(background="white")
-            .configure_view(fill="white")
-        )
-        st.altair_chart(bar, use_container_width=True)
+            st.altair_chart(bar, use_container_width=True)
 
-    with g2:
-        fig = go.Figure(
-            data=[go.Pie(
-                labels=comp_df["competitor"].tolist(),
-                values=comp_df["keywords"].tolist(),
-                hole=0.55,
-                textinfo="percent+label",
-                marker=dict(colors=colors[: len(comp_df)])
-            )],
-        )
-        fig.update_layout(
-            title="Share of visibility (mots-clés filtrés)",
-            margin=dict(l=10, r=10, t=40, b=10),
-            height=420,
-            paper_bgcolor="white",
-            plot_bgcolor="white",
-            legend=dict(orientation="v"),
-        )
-        st.plotly_chart(fig, use_container_width=True)
+        with g2:
+            fig = go.Figure(
+                data=[go.Pie(
+                    labels=comp_df["competitor"].tolist(),
+                    values=comp_df["keywords"].tolist(),
+                    hole=0.55,
+                    textinfo="percent+label",
+                    marker=dict(colors=colors[: len(comp_df)])
+                )],
+            )
+            fig.update_layout(
+                title="Share of visibility (mots-clés filtrés)",
+                margin=dict(l=10, r=10, t=40, b=10),
+                height=420,
+                paper_bgcolor="white",
+                plot_bgcolor="white",
+                legend=dict(orientation="v"),
+            )
+            st.plotly_chart(fig, use_container_width=True)
 
+# ---------- Google Search Console (dans une carte) ----------
+with card("Google Search Console — performance"):
+    site_url = f"https://{target_domain}/"
+    gsc_dates = query_search_console(
+        site_url,
+        start_A.strftime("%Y-%m-%d"),
+        end_d.strftime("%Y-%m-%d"),
+        dimensions=["date"],
+    )
+    if not gsc_dates.empty:
+        st.line_chart(gsc_dates.set_index("date")[["clicks", "impressions", "ctr", "position"]])
+    else:
+        st.info("Aucune donnée Search Console pour cette période.")
+
+    gsc_pages = query_search_console(
+        site_url,
+        start_A.strftime("%Y-%m-%d"),
+        end_d.strftime("%Y-%m-%d"),
+        dimensions=["page"],
+    )
+    if not gsc_pages.empty:
+        st.caption("Regex → catégorie (format: `regex -> catégorie`)")
+        cat_text = st.text_area(" ", height=120, key="regex_map")
+        patterns = []
+        for line in cat_text.splitlines():
+            if "->" in line:
+                rgx, cat = map(str.strip, line.split("->", 1))
+                if rgx and cat:
+                    try:
+                        patterns.append((re.compile(rgx), cat))
+                    except re.error:
+                        pass
+        if patterns:
+            gsc_pages["category"] = "Autres"
+            for rgx, cat in patterns:
+                gsc_pages.loc[gsc_pages["page"].str.contains(rgx), "category"] = cat
+            agg = (
+                gsc_pages.groupby("category")
+                .agg({"clicks": "sum", "impressions": "sum", "position": "mean"})
+                .reset_index()
+            )
+            agg["ctr"] = (agg["clicks"] / agg["impressions"]).fillna(0)
+            agg = agg[["category", "clicks", "impressions", "ctr", "position"]]
+            st.dataframe(agg.round(2))
+            st.bar_chart(agg.set_index("category")[["clicks", "impressions"]])
 
 # ---------------------- Footer / context ---------------------
 rk_count = int(rk_items.shape[0]) if isinstance(rk_items, pd.DataFrame) else 0
