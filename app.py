@@ -116,6 +116,60 @@ labels_df = (
 )
 labels_df["kw_norm2"] = labels_df["keyword"].apply(normalize_kw_strict)
 
+# ------------------ Screaming Frog URL categories -----------------
+st.subheader("URL categories from Screaming Frog")
+uploaded_sf = st.file_uploader(
+    "Export Screaming Frog", type=["csv", "xls", "xlsx"], help="Fichier 'Internal: All'."
+)
+
+def _infer_category(url: str) -> str:
+    p = urlparse(url)
+    path = p.path or "/"
+    parts = [seg for seg in path.split("/") if seg]
+    if parts:
+        return parts[0]
+    if p.query:
+        return p.query.split("=")[0]
+    return "root"
+
+def _load_sf(file) -> pd.DataFrame:
+    try:
+        if file.name.lower().endswith((".xls", ".xlsx")):
+            df = pd.read_excel(file)
+        else:
+            df = pd.read_csv(file)
+    except Exception as e:
+        st.error(f"Lecture impossible: {e}")
+        return pd.DataFrame()
+    if "Address" not in df.columns:
+        st.error("Colonne 'Address' manquante dans l'export.")
+        return pd.DataFrame()
+    tmp = df.dropna(subset=["Address"]).copy()
+    tmp["category"] = tmp["Address"].apply(_infer_category)
+    return tmp.rename(columns={"Address": "url"})[["url", "category"]]
+
+sf_mapping = {}
+if uploaded_sf:
+    sf_df = _load_sf(uploaded_sf)
+    if not sf_df.empty:
+        st.info("Corrige les catégories si besoin.")
+        edited = st.data_editor(sf_df, num_rows="dynamic", hide_index=True)
+        sf_mapping = dict(zip(edited["url"], edited["category"]))
+
+        from collections import defaultdict
+        def _build_regex(mapper: dict) -> dict:
+            buckets = defaultdict(set)
+            for u, cat in mapper.items():
+                path = urlparse(u).path
+                if not path.endswith("/"):
+                    path = path.rsplit("/", 1)[0] + "/"
+                buckets[cat].add(re.escape(path))
+            return {c: "^(" + "|".join(sorted(pths)) + ")" for c, pths in buckets.items()}
+
+        st.session_state["gsc_regex_rules"] = _build_regex(sf_mapping)
+        st.caption("Règles regex enregistrées pour Google Search Console.")
+        st.json(st.session_state["gsc_regex_rules"], expanded=False)
+
 # ======================= UI — PÉRIODE (pills) =======================
 st.markdown("""
 <style>
