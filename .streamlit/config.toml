@@ -1,20 +1,8 @@
-# .streamlit/config.toml
-
 [theme]
-base = "light"                 # force le mode clair
-primaryColor = "#0B8A65"
-backgroundColor = "#F7F4EB"    # fond page
-textColor = "#111111"
-font = "sans serif"
-# optionnel, Streamlit accepte aussi :
-# secondaryBackgroundColor = "#FFFFFF"
+base="light"
+primaryColor="#0B8A65"
+backgroundColor="#F7F4EB"
+secondaryBackgroundColor="#FFFFFF"
+textColor="#111111"
+font="sans serif"
 
-[browser]
-gatherUsageStats = false       # pas de télémétrie
-
-[server]
-headless = true
-address = "0.0.0.0"
-port = 7860
-enableCORS = true
-enableXsrfProtection = true

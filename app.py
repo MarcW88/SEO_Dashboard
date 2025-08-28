@@ -24,14 +24,6 @@ st.set_page_config(
     page_title="SEO Coverage — Strategic KPIs",
     page_icon="🧭",
     layout="wide",
-    theme={
-        "base": "light",
-        "primaryColor": "#0B8A65",
-        "backgroundColor": "#F7F4EB",
-        "secondaryBackgroundColor": "#FFFFFF",
-        "textColor": "#111111",
-        "font": "sans serif",
-    },
 )
 st.title("Dashboard")
 
