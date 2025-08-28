@@ -10,6 +10,7 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 import streamlit as st
+from gsc import query_search_console
 
 API_BASE = "https://api.dataforseo.com/v3"
 
@@ -496,6 +497,52 @@ else:
     # ========================= CONCURRENCE =========================
 st.divider()
 st.subheader("Competition analysis")
+
+# ---------- Google Search Console ----------
+site_url = f"https://{target_domain}/"
+gsc_dates = query_search_console(
+    site_url,
+    start_A.strftime("%Y-%m-%d"),
+    end_d.strftime("%Y-%m-%d"),
+    dimensions=["date"],
+)
+if not gsc_dates.empty:
+    st.line_chart(gsc_dates.set_index("date")[["clicks", "impressions", "ctr", "position"]])
+else:
+    st.info("Aucune donnée Search Console pour cette période.")
+
+gsc_pages = query_search_console(
+    site_url,
+    start_A.strftime("%Y-%m-%d"),
+    end_d.strftime("%Y-%m-%d"),
+    dimensions=["page"],
+)
+if not gsc_pages.empty:
+    st.caption("Regex → catégorie (format: `regex -> catégorie`)")
+    cat_text = st.text_area(" ", height=120, key="regex_map")
+    patterns = []
+    for line in cat_text.splitlines():
+        if "->" in line:
+            rgx, cat = map(str.strip, line.split("->", 1))
+            if rgx and cat:
+                try:
+                    patterns.append((re.compile(rgx), cat))
+                except re.error:
+                    pass
+    if patterns:
+        gsc_pages["category"] = "Autres"
+        for rgx, cat in patterns:
+            gsc_pages.loc[gsc_pages["page"].str.contains(rgx), "category"] = cat
+        agg = (
+            gsc_pages.groupby("category")
+            .agg({"clicks": "sum", "impressions": "sum", "position": "mean"})
+            .reset_index()
+        )
+        agg["ctr"] = (agg["clicks"] / agg["impressions"]).fillna(0)
+        agg = agg[["category", "clicks", "impressions", "ctr", "position"]]
+        st.dataframe(agg.round(2))
+        st.bar_chart(agg.set_index("category")[["clicks", "impressions"]])
+
 
 # ---------- 1) UI : labels + sélection de concurrents ----------
 # options de labels/thèmes (comme pour le radar)
