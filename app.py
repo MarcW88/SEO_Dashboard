@@ -26,6 +26,7 @@ st.set_page_config(
     page_icon="🧭",
     layout="wide",
 )
+st.markdown("<style>.stApp{background-color:#f5f5dc;}</style>", unsafe_allow_html=True)
 st.title("Dashboard")
 
 # -------------------- Credentials & HTTP --------------------
@@ -357,29 +358,16 @@ if not matches_A.empty:
         best_theme = str(agg.iloc[0]["theme"])
 
 # -------------------- KPI CARDS -------------------------------
-c1_css = """
-<style>
-div[data-testid="stMetric"], div[data-testid="metric-container"] {
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 1.25rem 1.5rem;
-    border: 0.5px solid #d1d5db;
-}
-div[data-testid="stMetric"] *,
-div[data-testid="metric-container"] * {
-    color: #000000 !important;
-    font-size: 1.1rem;
-}
-div[data-testid="stMetricValue"] {
-    font-size: 2rem;
-}
-</style>
-"""
-st.markdown(c1_css, unsafe_allow_html=True)
-c1, c2, c3 = st.columns(3)
-c1.metric("Couverture Top 10 (global)", f"{pct_top10:.1f} %", help=f"Période: {start_A} → {end_d}")
-c2.metric("Potentiel 11–20 (global)", f"{pct_11_20:.1f} %", help=f"Période: {start_A} → {end_d}")
-c3.metric("Thème le mieux couvert", best_theme)
+with st.container():
+    st.markdown(
+        "<div style='background:#fff; border-radius:8px; border:0.5px solid #d1d5db; padding:1.25rem 1.5rem;'>",
+        unsafe_allow_html=True,
+    )
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Couverture Top 10 (global)", f"{pct_top10:.1f} %", help=f"Période: {start_A} → {end_d}")
+    c2.metric("Potentiel 11–20 (global)", f"{pct_11_20:.1f} %", help=f"Période: {start_A} → {end_d}")
+    c3.metric("Thème le mieux couvert", best_theme)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # === VISUELS — Distribution ================================
 import altair as alt
@@ -401,19 +389,11 @@ if not metrics_df.empty:
     total_count = int(m.get("count", 0) or 0)
     dist_df["share_%"] = (dist_df["count"] / max(total_count, 1) * 100).round(1)
 
-    box = st.container()
-    box.markdown(
-        """
-        <style>
-        div[data-testid="stVerticalBlock"] {
-            background:#ffffff; border:0.5px solid #d1d5db;
-            border-radius:8px; padding:1rem;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    with box:
+    with st.container():
+        st.markdown(
+            "<div style='background:#fff; border:0.5px solid #d1d5db; border-radius:8px; padding:1rem;'>",
+            unsafe_allow_html=True,
+        )
         cc1, cc2 = st.columns([2,1])
         with cc1:
             chart = (
@@ -435,6 +415,7 @@ if not metrics_df.empty:
                 use_container_width=True,
                 hide_index=True,
             )
+        st.markdown("</div>", unsafe_allow_html=True)
 else:
     st.caption("Pas de métriques globales disponibles pour dessiner la distribution.")
 
@@ -481,6 +462,21 @@ if not theme_A_f.empty:
         )
     )
 
+    fig.update_layout(
+        polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
+        showlegend=True,
+        margin=dict(l=20, r=20, t=10, b=20),
+        height=420,
+        paper_bgcolor="white",
+        plot_bgcolor="white",
+    )
+    with st.container():
+        st.markdown(
+            "<div style='background:#fff; border:0.5px solid #d1d5db; border-radius:8px; padding:1rem;'>",
+            unsafe_allow_html=True,
+        )
+        st.plotly_chart(fig, use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
     for fig in (fig_prev, fig_curr):
         fig.update_layout(
             polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
@@ -726,19 +722,11 @@ if comp_df.empty:
 comp_df["share_%"] = (comp_df["keywords"] / comp_df["keywords"].sum() * 100).round(1)
 import plotly.express as px
 colors = px.colors.qualitative.Plotly
-box = st.container()
-box.markdown(
-    """
-    <style>
-    div[data-testid="stVerticalBlock"] {
-        background:#ffffff; border:0.5px solid #d1d5db;
-        border-radius:8px; padding:1rem;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-with box:
+with st.container():
+    st.markdown(
+        "<div style='background:#fff; border:0.5px solid #d1d5db; border-radius:8px; padding:1rem;'>",
+        unsafe_allow_html=True,
+    )
     g1, g2 = st.columns([2,1])
     with g1:
         bar = (
@@ -775,6 +763,7 @@ with box:
             legend=dict(orientation="v"),
         )
         st.plotly_chart(fig, use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 # ---------------------- Footer / context ---------------------
