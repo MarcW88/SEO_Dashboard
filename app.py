@@ -10,6 +10,7 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 import streamlit as st
+from gsc import query_search_console
 
 API_BASE = "https://api.dataforseo.com/v3"
 
@@ -116,6 +117,60 @@ labels_df = (
       .reset_index(drop=True)
 )
 labels_df["kw_norm2"] = labels_df["keyword"].apply(normalize_kw_strict)
+
+# ------------------ Screaming Frog URL categories -----------------
+st.subheader("URL categories from Screaming Frog")
+uploaded_sf = st.file_uploader(
+    "Export Screaming Frog", type=["csv", "xls", "xlsx"], help="Fichier 'Internal: All'."
+)
+
+def _infer_category(url: str) -> str:
+    p = urlparse(url)
+    path = p.path or "/"
+    parts = [seg for seg in path.split("/") if seg]
+    if parts:
+        return parts[0]
+    if p.query:
+        return p.query.split("=")[0]
+    return "root"
+
+def _load_sf(file) -> pd.DataFrame:
+    try:
+        if file.name.lower().endswith((".xls", ".xlsx")):
+            df = pd.read_excel(file)
+        else:
+            df = pd.read_csv(file)
+    except Exception as e:
+        st.error(f"Lecture impossible: {e}")
+        return pd.DataFrame()
+    if "Address" not in df.columns:
+        st.error("Colonne 'Address' manquante dans l'export.")
+        return pd.DataFrame()
+    tmp = df.dropna(subset=["Address"]).copy()
+    tmp["category"] = tmp["Address"].apply(_infer_category)
+    return tmp.rename(columns={"Address": "url"})[["url", "category"]]
+
+sf_mapping = {}
+if uploaded_sf:
+    sf_df = _load_sf(uploaded_sf)
+    if not sf_df.empty:
+        st.info("Corrige les catégories si besoin.")
+        edited = st.data_editor(sf_df, num_rows="dynamic", hide_index=True)
+        sf_mapping = dict(zip(edited["url"], edited["category"]))
+
+        from collections import defaultdict
+        def _build_regex(mapper: dict) -> dict:
+            buckets = defaultdict(set)
+            for u, cat in mapper.items():
+                path = urlparse(u).path
+                if not path.endswith("/"):
+                    path = path.rsplit("/", 1)[0] + "/"
+                buckets[cat].add(re.escape(path))
+            return {c: "^(" + "|".join(sorted(pths)) + ")" for c, pths in buckets.items()}
+
+        st.session_state["gsc_regex_rules"] = _build_regex(sf_mapping)
+        st.caption("Règles regex enregistrées pour Google Search Console.")
+        st.json(st.session_state["gsc_regex_rules"], expanded=False)
 
 # ======================= UI — PÉRIODE (pills) =======================
 st.markdown("""
@@ -375,36 +430,35 @@ theme_A_f = theme_A
 theme_B_f = theme_B if compare_prev else pd.DataFrame()
 
 if not theme_A_f.empty:
-    radar_A = theme_A_f.assign(top10_pct=(theme_A_f["top10_ratio"]*100).round(1))
-    axis = sorted(radar_A["theme"].unique().tolist())
-    if compare_prev:
-        radar_B = theme_B_f.assign(top10_pct=(theme_B_f["top10_ratio"]*100).round(1)) if not theme_B_f.empty else pd.DataFrame()
-        axis = sorted(set(axis) | set(radar_B.get("theme", [])))
-    r_A = radar_A.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist()
-    if compare_prev:
-        r_B = radar_B.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist() if not radar_B.empty else [0]*len(axis)
-    else:
-        r_B = [0]*len(axis)
+    axis = sorted(
+        set(theme_A_f.get("theme", [])) | set(theme_B_f.get("theme", []))
+    )
 
-    fig = go.Figure()
-    fig.add_trace(
+    def build_r(df: pd.DataFrame) -> list[float]:
+        radar = df.assign(top10_pct=(df["top10_ratio"] * 100).round(1)) if not df.empty else pd.DataFrame()
+        return radar.set_index("theme").reindex(axis)["top10_pct"].fillna(0).tolist() if not radar.empty else [0] * len(axis)
+
+    r_curr = build_r(theme_A_f)
+    r_prev = build_r(theme_B_f)
+
+    fig_curr = go.Figure(
         go.Scatterpolar(
-            r=r_A,
+            r=r_curr,
             theta=axis,
             fill="toself",
-            name=f"A ({start_A} → {end_d})",
             line_color="#1f77b4",
             fillcolor="rgba(31,119,180,0.3)",
+            name=f"A ({start_A} → {end_d})",
         )
     )
-    fig.add_trace(
+    fig_prev = go.Figure(
         go.Scatterpolar(
-            r=r_B,
+            r=r_prev,
             theta=axis,
             fill="toself",
-            name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
             line_color="#ff7f0e",
             fillcolor="rgba(255,127,14,0.3)",
+            name=f"B ({start_A - timedelta(days=window-1)} → {start_A - timedelta(days=1)})",
         )
     )
 
@@ -423,12 +477,80 @@ if not theme_A_f.empty:
         )
         st.plotly_chart(fig, use_container_width=True)
         st.markdown("</div>", unsafe_allow_html=True)
+    for fig in (fig_prev, fig_curr):
+        fig.update_layout(
+            polar=dict(bgcolor="white", radialaxis=dict(visible=True, range=[0, 100])),
+            showlegend=False,
+            margin=dict(l=20, r=20, t=10, b=20),
+            height=420,
+            paper_bgcolor="white",
+            plot_bgcolor="white",
+        )
+
+    col_prev, col_curr = st.columns(2)
+    with col_prev:
+        st.markdown("**Période précédente**")
+        if theme_B_f.empty:
+            st.caption("Pas de données pour la période précédente.")
+        else:
+            st.plotly_chart(fig_prev, use_container_width=True)
+    with col_curr:
+        st.markdown("**Période actuelle**")
+        st.plotly_chart(fig_curr, use_container_width=True)
 else:
-    st.caption("Pas assez de correspondances items ↔ labels pour construire le radar (overlap insuffisant).")
+    st.caption(
+        "Pas assez de correspondances items ↔ labels pour construire le radar (overlap insuffisant)."
+    )
 
     # ========================= CONCURRENCE =========================
 st.divider()
 st.subheader("Competition analysis")
+
+# ---------- Google Search Console ----------
+site_url = f"https://{target_domain}/"
+gsc_dates = query_search_console(
+    site_url,
+    start_A.strftime("%Y-%m-%d"),
+    end_d.strftime("%Y-%m-%d"),
+    dimensions=["date"],
+)
+if not gsc_dates.empty:
+    st.line_chart(gsc_dates.set_index("date")[["clicks", "impressions", "ctr", "position"]])
+else:
+    st.info("Aucune donnée Search Console pour cette période.")
+
+gsc_pages = query_search_console(
+    site_url,
+    start_A.strftime("%Y-%m-%d"),
+    end_d.strftime("%Y-%m-%d"),
+    dimensions=["page"],
+)
+if not gsc_pages.empty:
+    st.caption("Regex → catégorie (format: `regex -> catégorie`)")
+    cat_text = st.text_area(" ", height=120, key="regex_map")
+    patterns = []
+    for line in cat_text.splitlines():
+        if "->" in line:
+            rgx, cat = map(str.strip, line.split("->", 1))
+            if rgx and cat:
+                try:
+                    patterns.append((re.compile(rgx), cat))
+                except re.error:
+                    pass
+    if patterns:
+        gsc_pages["category"] = "Autres"
+        for rgx, cat in patterns:
+            gsc_pages.loc[gsc_pages["page"].str.contains(rgx), "category"] = cat
+        agg = (
+            gsc_pages.groupby("category")
+            .agg({"clicks": "sum", "impressions": "sum", "position": "mean"})
+            .reset_index()
+        )
+        agg["ctr"] = (agg["clicks"] / agg["impressions"]).fillna(0)
+        agg = agg[["category", "clicks", "impressions", "ctr", "position"]]
+        st.dataframe(agg.round(2))
+        st.bar_chart(agg.set_index("category")[["clicks", "impressions"]])
+
 
 # ---------- 1) UI : labels + sélection de concurrents ----------
 # options de labels/thèmes (comme pour le radar)
