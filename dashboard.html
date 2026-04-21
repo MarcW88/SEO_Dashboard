@@ -143,7 +143,6 @@
 </div>
 <div class="sub-tabs">
   <div class="sub-tab active" onclick="switchTab('overview')">Overview</div>
-  <div class="sub-tab" onclick="switchTab('sov')">Share of Voice</div>
   <div class="sub-tab" onclick="switchTab('data')">Connected Data</div>
 </div>
 
@@ -306,113 +305,6 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     TAB 2 — SHARE OF VOICE (detailed)
-     ═══════════════════════════════════════════════════ -->
-<div id="tab-sov" class="tab-content">
-<div class="content">
-
-  <!-- SoV GEO-style: donut + gauges by LABEL -->
-  <div class="sov-section">
-    <div class="sov-left">
-      <div class="sov-donut-wrap">
-        <div class="card-title" style="margin-bottom:10px">SEO Share of Voice (Global) <span style="color:#ccc;font-size:11px;cursor:help">&#9432;</span></div>
-        <canvas id="sovDonut2" height="220"></canvas>
-      </div>
-      <div class="sov-legend" id="sovLegend2"></div>
-    </div>
-    <div class="sov-right">
-      <div class="gauge-card">
-        <span class="ci">&#9432;</span>
-        <div class="gauge-title">Overall SEO SoV</div>
-        <div class="gauge-sub">320 keywords tracked</div>
-        <div class="gauge-wrap"><canvas id="gauge1"></canvas>
-          <div class="gauge-val">79%</div>
-        </div>
-        <div class="gauge-evo">Baseline &middot; April 2026</div>
-      </div>
-      <div class="gauge-card">
-        <span class="ci">&#9432;</span>
-        <div class="gauge-title">Facility &amp; Maintenance SoV</div>
-        <div class="gauge-sub">40 keywords</div>
-        <div class="gauge-wrap"><canvas id="gauge2"></canvas>
-          <div class="gauge-val">74%</div>
-        </div>
-        <div class="gauge-evo">Baseline &middot; April 2026</div>
-      </div>
-      <div class="gauge-card">
-        <span class="ci">&#9432;</span>
-        <div class="gauge-title">Equans Digital SoV</div>
-        <div class="gauge-sub">146 keywords</div>
-        <div class="gauge-wrap"><canvas id="gauge3"></canvas>
-          <div class="gauge-val">58%</div>
-        </div>
-        <div class="gauge-evo">Baseline &middot; April 2026</div>
-      </div>
-      <div class="gauge-card">
-        <span class="ci">&#9432;</span>
-        <div class="gauge-title">Carbon Shift SoV</div>
-        <div class="gauge-sub">102 keywords</div>
-        <div class="gauge-wrap"><canvas id="gauge4"></canvas>
-          <div class="gauge-val">94%</div>
-        </div>
-        <div class="gauge-evo">Baseline &middot; April 2026</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SoV Evolution -->
-  <div class="card">
-    <div class="card-hdr">
-      <div>
-        <div class="card-title">SEO Share of Voice Evolution</div>
-        <div class="card-sub">% of estimated clicks on the 320 tracked keywords, per domain</div>
-      </div>
-    </div>
-    <div class="legend-row" id="sovEvoLegend"></div>
-    <canvas id="chartSovEvo" height="80"></canvas>
-  </div>
-
-  <!-- SoV Ranking -->
-  <div class="card">
-    <div class="card-hdr">
-      <div><div class="card-title">SEO Share of Voice Ranking — April 2026</div></div>
-      <button class="btn-out">Export CSV</button>
-    </div>
-    <table>
-      <thead><tr><th>#</th><th>Domain</th><th>SoV SEO</th><th>Est. Traffic</th><th>Keywords Top 10</th><th>Trend</th></tr></thead>
-      <tbody id="sovRankTable"></tbody>
-    </table>
-  </div>
-
-  <!-- SoV by Label — bar chart only (no redundant radar) -->
-  <div class="card">
-    <div class="card-title" style="margin-bottom:10px">SEO Share of Voice by Label</div>
-    <div class="card-sub" style="margin-bottom:14px">Est. click share per label per domain — based on panel keywords only</div>
-    <canvas id="chartCluster" height="160"></canvas>
-  </div>
-
-  <!-- Methodology -->
-  <div class="method-box">
-    <strong>Methodology &amp; Scope</strong><br><br>
-    <strong style="color:#e8a838">&#9632; Coverage metrics</strong> (count-based, from rankings)<br>
-    <strong>Ranked Coverage</strong> = keywords with any position / total keywords in panel.<br>
-    <strong>Top 10 Coverage</strong> = keywords in position 1–10 / total keywords in panel.<br>
-    <strong>Top 10 Share vs Competitors</strong> = domain's Top 10 count / sum of all domains' Top 10 counts.<br>
-    <em>Source: positions retrieved weekly via SERP API on the 320 tracked keywords.</em><br><br>
-    <strong style="color:#1976d2">&#9632; Share of Voice</strong> (traffic-based, from panel)<br>
-    <strong>SEO SoV</strong> = &sum; est. clicks(domain, keyword) / &sum; est. clicks(all domains, all keywords).<br>
-    Per keyword: <strong>est. clicks = search volume &times; CTR(position)</strong>.<br>
-    This is calculated <strong>on the tracked panel only</strong> (320 keywords), not on global domain traffic.<br>
-    <em>Source: volumes via DataForSEO keyword data; positions via SERP API; CTR curve applied per position.</em><br><br>
-    <strong>Panel:</strong> 320 keywords &middot; <strong>Market:</strong> Belgium NL &middot; <strong>Competitors:</strong> spie.be, honeywell.com, vinci-energies.be, siemens.be, se.com<br>
-    <strong>Frequency:</strong> Weekly &middot; <strong>CTR model:</strong> Pos 1 &asymp; 30%, Pos 2 &asymp; 15%, Pos 3 &asymp; 10%, Pos 4–10 declining, Pos 11+ &asymp; 0%<br><br>
-    <strong>Note:</strong> Equans currently ranks on only 30 of 320 keywords. SoV will increase as content strategy matures.
-  </div>
-
-</div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════
      TAB 3 — CONNECTED DATA
      ═══════════════════════════════════════════════════ -->
 <div id="tab-data" class="tab-content">
@@ -469,19 +361,11 @@ function switchTab(id){
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
-  document.querySelectorAll('.sub-tab')[{overview:0,sov:1,data:2}[id]].classList.add('active');
+  document.querySelectorAll('.sub-tab')[{overview:0,data:1}[id]].classList.add('active');
 }
 
 const C={orange:'#e8a838',blue:'#1976d2',cyan:'#26c6da',amber:'#ffb300',red:'#ef5350',purple:'#ab47bc',brown:'#5d4037',green:'#8bc34a',pink:'#e91e63'};
 const months=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'];
-
-function makeGauge(id,pct,color){
-  new Chart(document.getElementById(id),{
-    type:'doughnut',
-    data:{datasets:[{data:[pct,100-pct],backgroundColor:[color,'#eae5db'],borderWidth:0}]},
-    options:{rotation:-90,circumference:180,cutout:'75%',plugins:{legend:{display:false},tooltip:{enabled:false},datalabels:{display:false}},responsive:true,maintainAspectRatio:false}
-  });
-}
 
 // ══════════════════════════════════════════
 // EQUANS DATA
@@ -658,99 +542,7 @@ new Chart(document.getElementById('chartRadar'),{
 });
 
 // ══════════════════════════════════════════
-// TAB 2 — SOV
-// ══════════════════════════════════════════
-const sovComp=[
-  {name:'equans.be',pct:78.7,delta:'baseline',dir:'up',color:C.orange},
-  {name:'se.com',pct:19.6,delta:'baseline',dir:'flat',color:C.red},
-  {name:'honeywell.com',pct:1.7,delta:'baseline',dir:'flat',color:C.cyan},
-  {name:'spie.be',pct:0,delta:'baseline',dir:'flat',color:C.purple},
-  {name:'siemens.be',pct:0,delta:'baseline',dir:'flat',color:C.blue},
-  {name:'vinci-energies.be',pct:0,delta:'baseline',dir:'flat',color:C.brown},
-];
-function buildSovDonut(cid,lid,data){
-  new Chart(document.getElementById(cid),{type:'doughnut',data:{labels:data.map(d=>d.name),datasets:[{data:data.map(d=>d.pct),backgroundColor:data.map(d=>d.color),borderWidth:2,borderColor:'#faf7f2'}]},options:{cutout:'55%',plugins:{legend:{display:false},datalabels:{display:false}}}});
-  const c=document.getElementById(lid);
-  data.forEach(d=>{c.innerHTML+=`<div class="sov-legend-row"><span class="sov-legend-dot" style="background:${d.color}"></span><span class="sov-legend-name">${d.name}</span><span class="sov-legend-pct">${d.pct}%</span><span class="sov-legend-delta ${d.dir==='up'?'up':'dn'}">${d.delta}</span></div>`;});
-  c.innerHTML+='<button class="show-all-btn">Show all competitors</button>';
-}
-buildSovDonut('sovDonut2','sovLegend2',sovComp);
-makeGauge('gauge1',79,'#e8a838');
-makeGauge('gauge2',74,'#e8a838');
-makeGauge('gauge3',58,'#e8a838');
-makeGauge('gauge4',94,'#e8a838');
-
-// SoV evolution — with legend values + last-point labels
-const sovEvoData=[
-  {label:'equans.be',data:[0,5,12,20,28,35,42,50,55,60,66,72,78.7],color:C.orange,fill:true,dash:false},
-  {label:'se.com',data:[15,15.5,16,16.5,17,17.5,17.8,18,18.5,18.8,19,19.3,19.6],color:C.red,fill:false,dash:true},
-  {label:'honeywell.com',data:[1,1,1.1,1.2,1.2,1.3,1.3,1.4,1.4,1.5,1.5,1.6,1.7],color:C.cyan,fill:false,dash:true},
-];
-const sel=document.getElementById('sovEvoLegend');
-sovEvoData.forEach(d=>{
-  const last=d.data[d.data.length-1];
-  sel.innerHTML+=`<span><span class="ldot" style="background:${d.color}"></span>${d.label} — <strong>${last}%</strong></span>`;
-});
-new Chart(document.getElementById('chartSovEvo'),{
-  type:'line',
-  data:{labels:months,datasets:sovEvoData.map(d=>({
-    label:d.label,data:d.data,borderColor:d.color,
-    backgroundColor:d.fill?'rgba(232,168,56,.1)':'transparent',
-    tension:.4,borderWidth:d.fill?2.5:2,pointRadius:1,pointHoverRadius:4,
-    borderDash:d.dash?[4,3]:[],fill:d.fill,
-  }))},
-  options:{
-    plugins:{
-      legend:{display:false},
-      datalabels:{
-        display:ctx=>ctx.dataIndex===ctx.dataset.data.length-1,
-        anchor:'end',align:'right',color:ctx=>ctx.dataset.borderColor,
-        font:{size:10,weight:'bold'},formatter:v=>v+'%',offset:4
-      }
-    },
-    scales:{y:{ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'#ebe6dc'}},x:{ticks:{font:{size:10}},grid:{display:false}}}
-  },
-  plugins:[ChartDataLabels]
-});
-
-// SoV ranking table
-const sovRows=[
-  {rank:1,name:'equans.be',color:C.orange,sov:78.7,traffic:'56',kw:25,delta:'baseline',dir:'up',hl:true},
-  {rank:2,name:'se.com',color:C.red,sov:19.6,traffic:'14',kw:10,delta:'baseline',dir:'flat'},
-  {rank:3,name:'honeywell.com',color:C.cyan,sov:1.7,traffic:'1',kw:2,delta:'baseline',dir:'flat'},
-  {rank:4,name:'spie.be',color:C.purple,sov:0,traffic:'0',kw:0,delta:'baseline',dir:'flat'},
-  {rank:5,name:'siemens.be',color:C.blue,sov:0,traffic:'0',kw:0,delta:'baseline',dir:'flat'},
-  {rank:6,name:'vinci-energies.be',color:C.brown,sov:0,traffic:'0',kw:0,delta:'baseline',dir:'flat'},
-];
-const srt=document.getElementById('sovRankTable');
-sovRows.forEach(r=>{
-  const bg=r.hl?'background:#fef6e8;':'';
-  const ts=r.dir==='up'?'background:#d5f5e3;color:#1e8449':r.dir==='dn'?'background:#fde8e8;color:#c0392b':'background:#eee;color:#999';
-  const ar=r.dir==='up'?'&#9650; ':r.dir==='dn'?'&#9660; ':'';
-  srt.innerHTML+=`<tr style="${bg}"><td style="color:#aaa;font-weight:700">${r.rank}</td><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${r.color};margin-right:6px;vertical-align:middle"></span><strong>${r.name}</strong></td><td><div style="display:flex;align-items:center;gap:6px"><div style="width:80px;height:5px;background:#ebe6dc;border-radius:99px"><div style="width:${r.sov}%;height:100%;background:${r.color};border-radius:99px"></div></div><strong>${r.sov}%</strong></div></td><td>${r.traffic}</td><td>${r.kw}</td><td><span style="${ts};font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px">${ar}${r.delta}</span></td></tr>`;
-});
-
-// SoV by label — bar chart only (no redundant radar)
-const clLabels=['Eq. Digital','Fac.&Maint.','Carbon Shift','Industry&Infra','ET-campagne','CO2&cost'];
-new Chart(document.getElementById('chartCluster'),{
-  type:'bar',
-  data:{labels:clLabels,datasets:[
-    {label:'equans.be',data:[58.3,74.5,93.9,99.0,100,100],backgroundColor:C.orange},
-    {label:'se.com',data:[38.2,23.6,6.1,1.0,0,0],backgroundColor:C.red},
-    {label:'honeywell.com',data:[3.5,1.9,0,0,0,0],backgroundColor:C.cyan},
-  ]},
-  options:{
-    plugins:{
-      legend:{labels:{font:{size:10},boxWidth:10}},
-      datalabels:{display:ctx=>ctx.dataset.label==='equans.be',anchor:'end',align:'top',color:C.orange,font:{size:9,weight:'bold'},formatter:v=>v+'%'}
-    },
-    scales:{y:{ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'#ebe6dc'}},x:{ticks:{font:{size:9}},grid:{display:false}}}
-  },
-  plugins:[ChartDataLabels]
-});
-
-// ══════════════════════════════════════════
-// TAB 3 — CONNECTED DATA
+// TAB 2 — CONNECTED DATA
 // ══════════════════════════════════════════
 new Chart(document.getElementById('chartGSC'),{
   type:'line',
