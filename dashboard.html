@@ -173,13 +173,13 @@
       <div class="kpi-cmp">25 / 320 keywords</div>
     </div>
     <div class="kpi-card">
-      <span class="ci">&#9432;<span class="tip">Average position across all tracked keywords. Unranked keywords count as position 100.</span></span>
+      <span class="ci">&#9432;<span class="tip">Estimated clicks/month on tracked keywords, based on search volume &times; CTR by position.</span></span>
       <div class="kpi-label">Est. Traffic (panel)</div>
       <div class="kpi-val">56</div>
       <div class="kpi-cmp">est. clicks/month &middot; 320 kw panel</div>
     </div>
     <div class="kpi-card">
-      <span class="ci">&#9432;<span class="tip">Equans Top 10 keywords / total Top 10 keywords across all tracked domains. Measures your relative share vs competitors.</span></span>
+      <span class="ci">&#9432;<span class="tip">Share of panel traffic potential vs tracked competitors. Calculated as est. clicks(equans) / est. clicks(all domains).</span></span>
       <div class="kpi-label">SEO Share of Voice</div>
       <div class="kpi-val accent">78.7%</div>
       <div class="kpi-cmp">vs se.com at 19.6%</div>
@@ -202,7 +202,7 @@
       <div class="card-hdr">
         <div>
           <div class="card-title">SEO Share of Voice (panel)</div>
-          <div class="card-sub">April 2026 &middot; est. clicks on tracked keywords (vol &times; CTR by position)</div>
+          <div class="card-sub">Estimated click share on tracked keywords (search volume &times; CTR by position)</div>
         </div>
       </div>
       <canvas id="sovOverviewDonut" height="180"></canvas>
@@ -226,7 +226,10 @@
   <div class="g2">
     <div class="card" style="margin:0">
       <div class="card-hdr">
-        <div><div class="card-title">Theme analysis</div></div>
+        <div>
+          <div class="card-title">Theme analysis</div>
+          <div class="card-sub">Panel performance by label: traffic potential, coverage and share of voice</div>
+        </div>
         <div class="radio-g">
           <label><input type="radio" name="top" checked> Top 10</label>
           <label><input type="radio" name="top"> Top 5</label>
@@ -239,7 +242,8 @@
       </table>
     </div>
     <div class="card" style="margin:0">
-      <div class="card-title" style="margin-bottom:10px">Volume distribution by label</div>
+      <div class="card-title" style="margin-bottom:4px">Panel weight by label</div>
+      <div class="card-sub" style="margin-bottom:10px">Search volume distribution across tracked labels</div>
       <canvas id="chartThemePie" height="240"></canvas>
     </div>
   </div>
@@ -249,7 +253,7 @@
     <div class="card-hdr">
       <div>
         <div class="card-title">Category Leaders</div>
-        <div class="card-sub">Who leads each label in Top 10 coverage</div>
+        <div class="card-sub">Who leads each label on the tracked panel</div>
       </div>
     </div>
     <table>
@@ -277,7 +281,10 @@
   <div class="card" style="padding:0;overflow:hidden">
     <div style="padding:20px 20px 0">
       <div class="card-hdr" style="margin-bottom:0">
-        <div><div class="card-title">Strengths and weaknesses per label</div></div>
+        <div>
+          <div class="card-title">Strengths and weaknesses per label</div>
+          <div class="card-sub">Competitive comparison across selected labels (Top 10 coverage)</div>
+        </div>
         <div style="display:flex;gap:8px;align-items:center">
           <select class="sel"><option>5 labels selected</option></select>
           <button class="btn-or">Select</button>
