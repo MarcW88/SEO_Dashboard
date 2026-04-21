@@ -1,0 +1,3908 @@
+{
+  "total_keywords": 320,
+  "total_traffic": 70.45,
+  "domains": {
+    "equans.be": {
+      "est_traffic": 55.5,
+      "sov_pct": 78.71,
+      "top10_count": 25,
+      "top10_coverage_pct": 7.81
+    },
+    "spie.be": {
+      "est_traffic": 0,
+      "sov_pct": 0.0,
+      "top10_count": 0,
+      "top10_coverage_pct": 0.0
+    },
+    "honeywell.com": {
+      "est_traffic": 1.2,
+      "sov_pct": 1.7,
+      "top10_count": 2,
+      "top10_coverage_pct": 0.62
+    },
+    "vinci-energies.be": {
+      "est_traffic": 0,
+      "sov_pct": 0.0,
+      "top10_count": 0,
+      "top10_coverage_pct": 0.0
+    },
+    "siemens.be": {
+      "est_traffic": 0,
+      "sov_pct": 0.0,
+      "top10_count": 0,
+      "top10_coverage_pct": 0.0
+    },
+    "se.com": {
+      "est_traffic": 13.8,
+      "sov_pct": 19.59,
+      "top10_count": 10,
+      "top10_coverage_pct": 3.12
+    }
+  },
+  "labels": {
+    "CO2 & cost reduction": {
+      "equans.be": {
+        "est_traffic": 0.5,
+        "sov_pct": 100.0,
+        "top10_count": 1,
+        "kw_count": 20
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 20
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 20
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 20
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 20
+      },
+      "se.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 20
+      }
+    },
+    "Carbon Shift": {
+      "equans.be": {
+        "est_traffic": 7.8,
+        "sov_pct": 93.94,
+        "top10_count": 3,
+        "kw_count": 102
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 102
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 102
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 102
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 102
+      },
+      "se.com": {
+        "est_traffic": 0.5,
+        "sov_pct": 6.06,
+        "top10_count": 1,
+        "kw_count": 102
+      }
+    },
+    "ET-campagne": {
+      "equans.be": {
+        "est_traffic": 0.5,
+        "sov_pct": 100.0,
+        "top10_count": 1,
+        "kw_count": 41
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 41
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 41
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 41
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 41
+      },
+      "se.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 41
+      }
+    },
+    "Electrification": {
+      "equans.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 5
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 5
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 5
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 5
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 5
+      },
+      "se.com": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 5
+      }
+    },
+    "Equans Digital": {
+      "equans.be": {
+        "est_traffic": 20.3,
+        "sov_pct": 58.33,
+        "top10_count": 12,
+        "kw_count": 146
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 146
+      },
+      "honeywell.com": {
+        "est_traffic": 1.2,
+        "sov_pct": 3.45,
+        "top10_count": 2,
+        "kw_count": 146
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 146
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 146
+      },
+      "se.com": {
+        "est_traffic": 13.3,
+        "sov_pct": 38.22,
+        "top10_count": 9,
+        "kw_count": 146
+      }
+    },
+    "Facility & Maintenance": {
+      "equans.be": {
+        "est_traffic": 23.2,
+        "sov_pct": 74.48,
+        "top10_count": 9,
+        "kw_count": 40
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 40
+      },
+      "honeywell.com": {
+        "est_traffic": 0.6,
+        "sov_pct": 1.93,
+        "top10_count": 1,
+        "kw_count": 40
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 40
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 40
+      },
+      "se.com": {
+        "est_traffic": 7.3,
+        "sov_pct": 23.6,
+        "top10_count": 5,
+        "kw_count": 40
+      }
+    },
+    "Industry & Infrastructure": {
+      "equans.be": {
+        "est_traffic": 15.2,
+        "sov_pct": 99.02,
+        "top10_count": 2,
+        "kw_count": 13
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 13
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 13
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 13
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 13
+      },
+      "se.com": {
+        "est_traffic": 0.1,
+        "sov_pct": 0.98,
+        "top10_count": 1,
+        "kw_count": 13
+      }
+    },
+    "Netcongestie": {
+      "equans.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 10
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 10
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 10
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 10
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 10
+      },
+      "se.com": {
+        "est_traffic": 0,
+        "sov_pct": 0,
+        "top10_count": 0,
+        "kw_count": 10
+      }
+    },
+    "No label": {
+      "equans.be": {
+        "est_traffic": 8.0,
+        "sov_pct": 100.0,
+        "top10_count": 3,
+        "kw_count": 15
+      },
+      "spie.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 15
+      },
+      "honeywell.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 15
+      },
+      "vinci-energies.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 15
+      },
+      "siemens.be": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 15
+      },
+      "se.com": {
+        "est_traffic": 0,
+        "sov_pct": 0.0,
+        "top10_count": 0,
+        "kw_count": 15
+      }
+    }
+  },
+  "keywords": [
+    {
+      "keyword": "asset management",
+      "volume": 590,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "big data",
+      "volume": 480,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 60
+    },
+    {
+      "keyword": "BMS",
+      "volume": 1600,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "BMS-cloud",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 26,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 17
+    },
+    {
+      "keyword": "BMS-software",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 7,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 22,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 11
+    },
+    {
+      "keyword": "BMS-systeem",
+      "volume": 40,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "BOS",
+      "volume": 9900,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "BOS immo",
+      "volume": 20,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "BOS vastgoed",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "BOS-systeem",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "BOS-vastgoed",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Building automation",
+      "volume": 30,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 11,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 9,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 19
+    },
+    {
+      "keyword": "building efficiency",
+      "volume": 10,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": 6,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Building Information Modeling",
+      "volume": 320,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Building Operating System",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 53,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 1
+    },
+    {
+      "keyword": "circulaire economie",
+      "volume": 1000,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "cloud energie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 83
+    },
+    {
+      "keyword": "cloud transformatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Cloudplatform",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co uitstoot",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 emissie certificaat",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": 7,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 emissies",
+      "volume": 90,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-balans",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-belasting",
+      "volume": 210,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-compensatie",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-neutraal",
+      "volume": 50,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 38
+    },
+    {
+      "keyword": "CO2-neutraliteit",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-reductie",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-voetafdruk",
+      "volume": 50,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CO2-voetafdruk verminderen",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "CSRD",
+      "volume": 2400,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 70
+    },
+    {
+      "keyword": "CSRD-richtlijn",
+      "volume": 90,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "cyberbeveiliging",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "cybersecurity",
+      "volume": 3600,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "cybersecurity-oplossingen",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "data asset management",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "data management",
+      "volume": 320,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 53
+    },
+    {
+      "keyword": "data management-systeem",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "data security",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "data-analyse",
+      "volume": 590,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "data-driven",
+      "volume": 110,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "data-integratie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "databeheer",
+      "volume": 50,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "decarbonisatie",
+      "volume": 110,
+      "label": "Carbon Shift",
+      "equans.be_pos": 9,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "decarbonisering",
+      "volume": 110,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitaal ecosysteem",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 20
+    },
+    {
+      "keyword": "digital business",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 27
+    },
+    {
+      "keyword": "digital twin",
+      "volume": 880,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale architectuur",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale automatisering",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 42
+    },
+    {
+      "keyword": "digitale energie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale infrastructuur",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale innovatie",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale monitoring",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale oplossingen",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": 17,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale optimalisatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": 6,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale roadmap",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 102
+    },
+    {
+      "keyword": "digitale strategie",
+      "volume": 110,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transformatie",
+      "volume": 170,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transformatie bedrijf",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transformatie business",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transformatie digitalisering",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transformatie organisatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transformatie retail",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 12
+    },
+    {
+      "keyword": "digitale transformatie zorg",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitale transitie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": 6,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Digitale tweeling",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitalisering",
+      "volume": 390,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaam bouwen",
+      "volume": 170,
+      "label": "Industry & Infrastructure, Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Duurzaam gebouw",
+      "volume": 20,
+      "label": "Facility & Maintenance, Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaam gebouwbeheer",
+      "volume": 10,
+      "label": "Facility & Maintenance, Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaam transport",
+      "volume": 70,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheid in het bedrijf",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheid voetafdruk",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheid voor bedrijven",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheidsbeleid",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheidsstrategie",
+      "volume": 50,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame ecologische voetafdruk",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame energie",
+      "volume": 390,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame energieproductie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame investeringen",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame ontwikkeling",
+      "volume": 110,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame strategie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame transformatie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 19
+    },
+    {
+      "keyword": "ecologisch bedrijf",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 100
+    },
+    {
+      "keyword": "ecologisch verantwoord ondernemen",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische footprint",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische impact",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische transitie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische voetafdruk",
+      "volume": 1300,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische voetafdruk berekenen",
+      "volume": 320,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische voetafdruk meten",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ecologische voetafdruk verkleinen",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "emissie uitstoot",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "emissiereductie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie",
+      "volume": 27100,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie beheer systeem",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 41
+    },
+    {
+      "keyword": "energie-effici\u00ebntie",
+      "volume": 210,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie-innovatie",
+      "volume": 10,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie-investeringen",
+      "volume": 10,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie-optimalisatie",
+      "volume": 10,
+      "label": "nan",
+      "equans.be_pos": 5,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 43
+    },
+    {
+      "keyword": "energieaudit",
+      "volume": 140,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiebalans",
+      "volume": 140,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiebeheer",
+      "volume": 50,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Energiebeheersysteem",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 23
+    },
+    {
+      "keyword": "energiebesparing",
+      "volume": 320,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiedistributie",
+      "volume": 10,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieleverancier",
+      "volume": 3600,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiemanagement",
+      "volume": 140,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 37
+    },
+    {
+      "keyword": "energiemanagementsysteem",
+      "volume": 210,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiemanagementsystemen",
+      "volume": 210,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiemarkt",
+      "volume": 170,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Energiemonitoring",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 7
+    },
+    {
+      "keyword": "energieneutrale gebouwen",
+      "volume": 20,
+      "label": "Facility & Maintenance, Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieopslag",
+      "volume": 390,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 85,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieoptimalisatie",
+      "volume": 10,
+      "label": "nan",
+      "equans.be_pos": 2,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieplatform",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 19
+    },
+    {
+      "keyword": "energieprestatie",
+      "volume": 40,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Energieprestatie van gebouwen",
+      "volume": 10,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieprestaties",
+      "volume": 40,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransformatie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransitie",
+      "volume": 260,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransitie in de industrie",
+      "volume": 10,
+      "label": "Industry & Infrastructure, Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energy data management",
+      "volume": 1600,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energy management",
+      "volume": 50,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 41
+    },
+    {
+      "keyword": "ESG",
+      "volume": 4400,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 58
+    },
+    {
+      "keyword": "ESG-criteria",
+      "volume": 70,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 73
+    },
+    {
+      "keyword": "Facility management",
+      "volume": 480,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "factoren ecologische voetafdruk",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "gebouw beheer en onderhoud",
+      "volume": 10,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": 2,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "gebouw onderhoud",
+      "volume": 10,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": 9,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Gebouwautomatisering",
+      "volume": 20,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 5,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 46
+    },
+    {
+      "keyword": "gebouwbeheer",
+      "volume": 40,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": 6,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 11
+    },
+    {
+      "keyword": "gebouwbeheersysteem",
+      "volume": 140,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 17,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 7
+    },
+    {
+      "keyword": "gebouwbeheersystemen",
+      "volume": 40,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 3,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 8
+    },
+    {
+      "keyword": "gemiddelde ecologische voetafdruk",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "GHG Protocol",
+      "volume": 260,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "GHG Protocol scope 1",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 5
+    },
+    {
+      "keyword": "GHG Protocol scope 3",
+      "volume": 40,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 25
+    },
+    {
+      "keyword": "GMAO",
+      "volume": 2240000,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "groen beleid",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "groene energie",
+      "volume": 480,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": 30,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "groene technologie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "hernieuwbare bronnen",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": 19,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "hernieuwbare energie",
+      "volume": 590,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": 17,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "hulp digitale transformatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "industrie 4.0",
+      "volume": 10,
+      "label": "Equans Digital, Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "industri\u00eble IoT",
+      "volume": 10,
+      "label": "Equans Digital, Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 10
+    },
+    {
+      "keyword": "Installatiebeheer",
+      "volume": 10,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Internet der dingen",
+      "volume": 140,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Internet of Things",
+      "volume": 590,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Internet of Things-platform",
+      "volume": 40,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 55
+    },
+    {
+      "keyword": "internetbeveiliging",
+      "volume": 40,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT",
+      "volume": 1300,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 70
+    },
+    {
+      "keyword": "IoT-bank",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 4
+    },
+    {
+      "keyword": "IoT-bedrijf",
+      "volume": 30,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT-BMS",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 85,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 7
+    },
+    {
+      "keyword": "IoT-cloud",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT-data",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT-device management-app",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT-informatica",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT-integratie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 30
+    },
+    {
+      "keyword": "IoT-oplossing",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 16
+    },
+    {
+      "keyword": "IoT-oplossingen",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 47
+    },
+    {
+      "keyword": "IoT-platform",
+      "volume": 40,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 58
+    },
+    {
+      "keyword": "IoT-smart buildings",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 89,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 5
+    },
+    {
+      "keyword": "IoT-technologie",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "IoT-toepassingen",
+      "volume": 30,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 30
+    },
+    {
+      "keyword": "IT-infrastructuur",
+      "volume": 70,
+      "label": "Equans Digital, Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Kantoor van de toekomst",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "klimaatadaptatie",
+      "volume": 140,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "klimaatbeleid",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "klimaatneutraliteit",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "klimaattransitie",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "machine learning",
+      "volume": 1300,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "milieuwetgeving",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "MVO-strategie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netwerkbeveiliging",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "NFDR",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "predictief onderhoud",
+      "volume": 40,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "predictive analytics",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "predictive maintenance",
+      "volume": 140,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 39
+    },
+    {
+      "keyword": "procesoptimalisatie",
+      "volume": 110,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "realtime data",
+      "volume": 20,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 18
+    },
+    {
+      "keyword": "remote monitoring",
+      "volume": 70,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "SBTi",
+      "volume": 720,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 104
+    },
+    {
+      "keyword": "scope 1",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": 59,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 56
+    },
+    {
+      "keyword": "scope 1 2 3 emissies",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 62
+    },
+    {
+      "keyword": "scope 1 emissies",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 64
+    },
+    {
+      "keyword": "scope 1 en 2 emissies",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 49
+    },
+    {
+      "keyword": "scope 2 emissies",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 80
+    },
+    {
+      "keyword": "scope 3 emissies",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 91
+    },
+    {
+      "keyword": "sensortechnologie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Slim bedrijf",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Slim gebouw",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "slimme netwerken",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Smart building",
+      "volume": 110,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 48,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart building BIM",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 11
+    },
+    {
+      "keyword": "smart building-expert",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 4,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 32,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 83
+    },
+    {
+      "keyword": "smart building-experts",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart city",
+      "volume": 480,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart data management",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart energy",
+      "volume": 170,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart grid technologie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart grids",
+      "volume": 590,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 15
+    },
+    {
+      "keyword": "smart industry",
+      "volume": 30,
+      "label": "Equans Digital, Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart maintenance",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart solutions",
+      "volume": 1000,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart technology",
+      "volume": 140,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Smartscore",
+      "volume": 50,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "softwareontwikkeling",
+      "volume": 90,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 81
+    },
+    {
+      "keyword": "stappenplan digitale transformatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "succesvolle digitale transformatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "systeemintegratie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "systeemoptimalisatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "technisch gebouwbeheer",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 31,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "Tertiaire sector",
+      "volume": 480,
+      "label": "Facility & Maintenance",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 84
+    },
+    {
+      "keyword": "voetafdruk milieu",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "voordelen digitale transformatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "wat is een smart building",
+      "volume": 10,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "windenergie",
+      "volume": 1300,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "zonne-energie",
+      "volume": 3600,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheid en energietransitie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame energietransitie",
+      "volume": 30,
+      "label": "ET-campagne",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "groene energietransitie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitalisering bedrijf",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "esg regelgeving",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "esg richtlijnen",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "building management system",
+      "volume": 90,
+      "label": "Facility & Maintenance, Equans Digital",
+      "equans.be_pos": 2,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 10
+    },
+    {
+      "keyword": "circulaire duurzaamheid",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "circulaire onderneming",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheid circulaire economie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzaamheid economie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "transitie circulaire economie",
+      "volume": 10,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "kathodische bescherming",
+      "volume": 210,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": 4,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "kathodische bescherming leiding",
+      "volume": 10,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": 5,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieprestatiecontract",
+      "volume": 20,
+      "label": "nan",
+      "equans.be_pos": 1,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "cbam",
+      "volume": 1900,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 39
+    },
+    {
+      "keyword": "secr",
+      "volume": 1300,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "european sustainability reporting standards",
+      "volume": 70,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 30
+    },
+    {
+      "keyword": "crc",
+      "volume": 880,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "global reporting initiative",
+      "volume": 720,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 17
+    },
+    {
+      "keyword": "gri",
+      "volume": 720,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 25
+    },
+    {
+      "keyword": "sfdr regulation",
+      "volume": 90,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 69
+    },
+    {
+      "keyword": "esg",
+      "volume": 4400,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 54
+    },
+    {
+      "keyword": "esg report",
+      "volume": 260,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 76
+    },
+    {
+      "keyword": "csr report",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 48
+    },
+    {
+      "keyword": "iso 14067",
+      "volume": 50,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 43
+    },
+    {
+      "keyword": "csrd",
+      "volume": 2400,
+      "label": "nan",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 94
+    },
+    {
+      "keyword": "pcf",
+      "volume": 590,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 50
+    },
+    {
+      "keyword": "esg audit",
+      "volume": 20,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 98
+    },
+    {
+      "keyword": "iso 14025",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 34
+    },
+    {
+      "keyword": "iso14044",
+      "volume": 30,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 43
+    },
+    {
+      "keyword": "iso 26000",
+      "volume": 170,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "transportsystemen",
+      "volume": 30,
+      "label": "Industry & Infrastructure",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "operationeel manager smart buildings",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 4,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "facility management smart buildings",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 23
+    },
+    {
+      "keyword": "technisch directeur smart buildings",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 1,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 47,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 66
+    },
+    {
+      "keyword": "operationeel directeur industrie",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "plantmanager industrie",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "industry operator smart buildings",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 15,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 63,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 24
+    },
+    {
+      "keyword": "energieoptimalisatie gebouwen",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 22,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energieprestatie gebouwen",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "logistieke optimalisatie",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "kunstmatige intelligentie industrie 4.0",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "gegevensbeheer voor industrie",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 24
+    },
+    {
+      "keyword": "industri\u00eble cyberbeveiliging",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 96,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": 75,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "industri\u00eble automatisering",
+      "volume": 110,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 31
+    },
+    {
+      "keyword": "building automation",
+      "volume": 30,
+      "label": "Equans Digital",
+      "equans.be_pos": 11,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 9,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 19
+    },
+    {
+      "keyword": "advanced data analytics",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 51
+    },
+    {
+      "keyword": "automatisering productieproces",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "lms-software voor industrie",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 42
+    },
+    {
+      "keyword": "dashboard voor slimme gebouwen",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 1,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "ai industrie 4.0",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "slimme gebouwen",
+      "volume": 10,
+      "label": "Equans Digital",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": 81,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "e-mobility",
+      "volume": 210,
+      "label": "Carbon Shift",
+      "equans.be_pos": 8,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame mobiliteit",
+      "volume": 140,
+      "label": "Carbon Shift",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "digitiale transitie",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 6,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "industrial automation",
+      "volume": 90,
+      "label": "Equans Digital",
+      "equans.be_pos": 58,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 33,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 28
+    },
+    {
+      "keyword": "energieverbruik optimisaleren",
+      "volume": 0,
+      "label": "Equans Digital",
+      "equans.be_pos": 10,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 76
+    },
+    {
+      "keyword": "energiekosten verlagen bedrijf",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "elektrificatie industrie",
+      "volume": 10,
+      "label": "ET-campagne, Electrification",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netcongestie oplossingen",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "elektrificatie",
+      "volume": 140,
+      "label": "ET-campagne, Electrification",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netcongestie",
+      "volume": 140,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "actieplan netcongestie",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie management systeem",
+      "volume": 210,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart grid oplossingen",
+      "volume": 40,
+      "label": "ET-campagne",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 26
+    },
+    {
+      "keyword": "wat is netcongestie",
+      "volume": 20,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "capaciteit elektriciteitsnet",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie management industrie",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": 69
+    },
+    {
+      "keyword": "co2 uitstoot verminderen",
+      "volume": 30,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "duurzame bedrijfsvoering",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie besparen bedrijf",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie audit industrie",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "groene energie bedrijf",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "van gas naar elektriciteit",
+      "volume": 10,
+      "label": "ET-campagne, Electrification",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "smart electrification",
+      "volume": 10,
+      "label": "ET-campagne, Electrification",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "wat is elektrificatie",
+      "volume": 10,
+      "label": "ET-campagne, Electrification",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netcongestie belgie",
+      "volume": 20,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netcongestie zonnepanelen",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netcongestie vlaanderen",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "netcongestie batterij",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2-reductie",
+      "volume": 30,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 reductie industrie",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 reductie landbouw",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2-reductie 2030",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 reductie zonnepanelen",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "wat is co2 reductie",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 reductie maatregelen",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "reductie co2 uitstoot",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2-reductie bedrijven",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "co2 reductie bouw",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energiekosten bedrijf",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransitie maatregelen",
+      "volume": 10,
+      "label": "ET-campagne",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransitie gebouwen",
+      "volume": 10,
+      "label": "ET-campagne",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransitie bouw",
+      "volume": 10,
+      "label": "ET-campagne",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energietransitie belgi\u00eb",
+      "volume": 10,
+      "label": "ET-campagne",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "energie optimalisatie",
+      "volume": 10,
+      "label": "ET-campagne, CO2 & cost reduction",
+      "equans.be_pos": 5,
+      "spie.be_pos": null,
+      "honeywell.com_pos": null,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    },
+    {
+      "keyword": "batterij opslag energie",
+      "volume": 10,
+      "label": "ET-campagne, Netcongestie",
+      "equans.be_pos": null,
+      "spie.be_pos": null,
+      "honeywell.com_pos": 109,
+      "vinci-energies.be_pos": null,
+      "siemens.be_pos": null,
+      "se.com_pos": null
+    }
+  ]
+}
