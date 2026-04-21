@@ -186,26 +186,25 @@
     </div>
   </div>
 
-  <!-- 2. TOP COMPETITORS -->
-  <div class="section-sep">Top Competitors on Tracked Panel</div>
-  <div class="g32">
-    <div class="card" style="margin:0">
-      <div class="card-hdr">
-        <div>
-          <div class="card-title">Competitive Presence</div>
-          <div class="card-sub">Domains most frequently visible across the 320 tracked keywords (any position)</div>
-        </div>
+  <!-- 2. TOP 15 ORGANIC COMPETITORS -->
+  <div class="card">
+    <div class="card-hdr">
+      <div>
+        <div class="card-title">Top 15 Organic Competitors <span class="ci">&#9432;<span class="tip">Domains found ranking on the same tracked keywords.</span></span></div>
       </div>
-      <canvas id="chartPresenceBar" height="140"></canvas>
+      <div style="display:flex;gap:8px;align-items:center">
+        <select class="sel"><option>Select labels</option></select>
+        <button class="btn-or">Select</button>
+      </div>
     </div>
-    <div class="card" style="margin:0">
-      <div class="card-hdr">
-        <div>
-          <div class="card-title">Presence Share on Panel</div>
-          <div class="card-sub">% of total keyword appearances captured by each domain</div>
-        </div>
+    <div class="g32" style="margin:0">
+      <div>
+        <div class="card-sub" style="margin-bottom:10px;text-align:center">Number of Competitor pages on the same keywords</div>
+        <canvas id="chartPresenceBar" height="200"></canvas>
       </div>
-      <canvas id="chartPresenceDonut" height="180"></canvas>
+      <div>
+        <canvas id="chartPresenceDonut" height="260"></canvas>
+      </div>
     </div>
   </div>
 
@@ -416,44 +415,41 @@ const labelData = [
 // TAB 1 — OVERVIEW
 // ══════════════════════════════════════════
 
-// 0. Top Competitors — presence on tracked panel
+// 0. Top 15 Organic Competitors — presence on tracked keywords
+const compColors=['#2ecc71','#e67e22','#9b59b6','#e74c3c','#3498db','#1abc9c','#f1c40f','#e91e63','#00bcd4','#8bc34a','#ff9800','#607d8b','#795548','#cddc39','#9c27b0'];
 const presenceData = [
-  {name:'se.com',       kw:83, pct:25.9, color:C.red},
-  {name:'equans.be',    kw:35, pct:10.9, color:C.orange},
-  {name:'honeywell.com',kw:14, pct:4.4,  color:C.cyan},
-  {name:'spie.be',      kw:3,  pct:0.9,  color:C.purple},
-  {name:'siemens.be',   kw:2,  pct:0.6,  color:C.blue},
-  {name:'vinci-energies.be',kw:0, pct:0, color:C.brown},
+  {name:'se.com',              kw:83},
+  {name:'equans.be',           kw:35},
+  {name:'honeywell.com',       kw:14},
+  {name:'spie.be',             kw:3},
+  {name:'siemens.be',          kw:2},
+  {name:'vinci-energies.be',   kw:0},
 ];
+presenceData.forEach((d,i)=>d.color=compColors[i%compColors.length]);
 new Chart(document.getElementById('chartPresenceBar'),{
   type:'bar',
-  data:{labels:presenceData.map(c=>c.name),datasets:[{data:presenceData.map(c=>c.kw),backgroundColor:presenceData.map(c=>c.color),borderRadius:3,barPercentage:.65}]},
+  data:{labels:presenceData.map(c=>c.name),datasets:[{data:presenceData.map(c=>c.kw),backgroundColor:presenceData.map(c=>c.color),borderRadius:3,barPercentage:.6}]},
   options:{
     indexAxis:'y',
-    plugins:{
-      legend:{display:false},
-      tooltip:{callbacks:{label:ctx=>{const c=presenceData[ctx.dataIndex];return c.kw+' keywords ('+c.pct+'%)';}}},
-      datalabels:{display:true,anchor:'end',align:'right',color:'#555',font:{size:11,weight:'bold'},formatter:(v,ctx)=>{const c=presenceData[ctx.dataIndex];return c.kw+' kw ('+c.pct+'%)';}}
-    },
-    scales:{x:{ticks:{font:{size:10}},grid:{color:'#ebe6dc'},max:100},y:{ticks:{font:{size:11,weight:'bold'}},grid:{display:false}}}
+    plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'right',color:'#555',font:{size:10,weight:'bold'},formatter:v=>v}},
+    scales:{x:{ticks:{font:{size:10}},grid:{color:'#ebe6dc'}},y:{ticks:{font:{size:10,weight:'600'}},grid:{display:false}}}
   },
   plugins:[ChartDataLabels]
 });
-const totalPresence=presenceData.reduce((s,d)=>s+d.kw,0);
-const presenceShare=presenceData.map(d=>({...d,share:totalPresence?+(d.kw/totalPresence*100).toFixed(1):0}));
+const totalP=presenceData.reduce((s,d)=>s+d.kw,0);
 new Chart(document.getElementById('chartPresenceDonut'),{
   type:'doughnut',
-  data:{labels:presenceShare.map(d=>d.name),datasets:[{data:presenceShare.map(d=>d.share),backgroundColor:presenceShare.map(d=>d.color),borderWidth:2,borderColor:'#faf7f2'}]},
+  data:{labels:presenceData.map(d=>d.name),datasets:[{data:presenceData.map(d=>d.kw),backgroundColor:presenceData.map(d=>d.color),borderWidth:2,borderColor:'#faf7f2'}]},
   options:{
     cutout:'55%',
     plugins:{
-      legend:{position:'bottom',labels:{font:{size:10},boxWidth:10,padding:8,generateLabels:chart=>{
-        return chart.data.labels.map((l,i)=>{const d=presenceShare[i];return{text:l+' — '+d.share+'% ('+d.kw+' kw)',fillStyle:d.color,strokeStyle:'#faf7f2',lineWidth:2,index:i};});
+      legend:{position:'right',labels:{font:{size:10},boxWidth:12,padding:10,generateLabels:chart=>{
+        return chart.data.labels.map((l,i)=>{const d=presenceData[i];const pct=totalP?(d.kw/totalP*100).toFixed(1):'0';return{text:l+' ('+pct+'%)',fillStyle:d.color,strokeStyle:'#faf7f2',lineWidth:2,index:i};});
       }}},
-      tooltip:{callbacks:{label:ctx=>{const d=presenceShare[ctx.dataIndex];return d.name+': '+d.share+'% — '+d.kw+' keywords';}}},
-      datalabels:{display:false}
+      datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>0,color:'#fff',font:{size:9,weight:'bold'},formatter:(v)=>{const pct=totalP?(v/totalP*100).toFixed(1):'0';return pct+'%';}}
     }
-  }
+  },
+  plugins:[ChartDataLabels]
 });
 
 // 1. Top 10 Coverage by Domain — horizontal bars with datalabels
