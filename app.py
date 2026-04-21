@@ -14,6 +14,36 @@ st.set_page_config(
 )
 
 # ══════════════════════════════════════════════════════════════
+# PASSWORD PROTECTION
+# ══════════════════════════════════════════════════════════════
+def check_password():
+    """Returns True if the user has entered the correct password."""
+    def password_entered():
+        if st.session_state["password"] == "equans2026":
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        st.markdown("<div style='max-width:400px;margin:auto;padding-top:4rem;text-align:center'>", unsafe_allow_html=True)
+        st.markdown("### 🔒 Semactic Dashboard")
+        st.text_input("Password", type="password", on_change=password_entered, key="password")
+        st.markdown("</div>", unsafe_allow_html=True)
+        return False
+    elif not st.session_state["password_correct"]:
+        st.markdown("<div style='max-width:400px;margin:auto;padding-top:4rem;text-align:center'>", unsafe_allow_html=True)
+        st.markdown("### 🔒 Semactic Dashboard")
+        st.text_input("Password", type="password", on_change=password_entered, key="password")
+        st.error("Incorrect password")
+        st.markdown("</div>", unsafe_allow_html=True)
+        return False
+    return True
+
+if not check_password():
+    st.stop()
+
+# ══════════════════════════════════════════════════════════════
 # CUSTOM CSS — Semactic palette
 # ══════════════════════════════════════════════════════════════
 st.markdown("""
