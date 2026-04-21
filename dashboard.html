@@ -237,7 +237,7 @@
         </div>
       </div>
       <table>
-        <thead><tr><th>Label</th><th>Est. Traffic</th><th># KW Top 10</th><th>Coverage %</th><th>Total KW</th></tr></thead>
+        <thead><tr><th>Label</th><th>Est. Traffic</th><th>Equans SoV</th><th></th># KW Top 10</th><th>Coverage %</th><th>Total KW</th></tr></thead>
         <tbody id="themeTableBody"></tbody>
       </table>
     </div>
@@ -378,15 +378,15 @@ const months=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb',
 // EQUANS DATA
 // ══════════════════════════════════════════
 const labelData = [
-  {name:'Facility & Maintenance',      kw:40,  vol:23.2, top10:9,  ranked:9,  notRanked:31,  color:'#ff9800'},
-  {name:'Equans Digital',              kw:146, vol:20.3, top10:12, ranked:12, notRanked:134, color:'#1976d2'},
-  {name:'Industry & Infrastructure',   kw:13,  vol:15.2, top10:2,  ranked:2,  notRanked:11,  color:'#ef5350'},
-  {name:'No label',                    kw:15,  vol:8.0,  top10:3,  ranked:3,  notRanked:12,  color:'#ccc'},
-  {name:'Carbon Shift',                kw:102, vol:7.8,  top10:3,  ranked:3,  notRanked:99,  color:'#26c6da'},
-  {name:'CO2 & cost reduction',        kw:20,  vol:0.5,  top10:1,  ranked:1,  notRanked:19,  color:'#5d4037'},
-  {name:'ET-campagne',                 kw:41,  vol:0.5,  top10:1,  ranked:1,  notRanked:40,  color:'#ab47bc'},
-  {name:'Electrification',             kw:5,   vol:0,    top10:0,  ranked:0,  notRanked:5,   color:'#ffb300'},
-  {name:'Netcongestie',                kw:10,  vol:0,    top10:0,  ranked:0,  notRanked:10,  color:'#e91e63'},
+  {name:'Facility & Maintenance',      kw:40,  vol:23.2, sov:74.5,  top10:9,  ranked:9,  notRanked:31,  color:'#ff9800'},
+  {name:'Equans Digital',              kw:146, vol:20.3, sov:58.3,  top10:12, ranked:12, notRanked:134, color:'#1976d2'},
+  {name:'Industry & Infrastructure',   kw:13,  vol:15.2, sov:99.0,  top10:2,  ranked:2,  notRanked:11,  color:'#ef5350'},
+  {name:'No label',                    kw:15,  vol:8.0,  sov:100,   top10:3,  ranked:3,  notRanked:12,  color:'#ccc'},
+  {name:'Carbon Shift',                kw:102, vol:7.8,  sov:93.9,  top10:3,  ranked:3,  notRanked:99,  color:'#26c6da'},
+  {name:'CO2 & cost reduction',        kw:20,  vol:0.5,  sov:100,   top10:1,  ranked:1,  notRanked:19,  color:'#5d4037'},
+  {name:'ET-campagne',                 kw:41,  vol:0.5,  sov:100,   top10:1,  ranked:1,  notRanked:40,  color:'#ab47bc'},
+  {name:'Electrification',             kw:5,   vol:0,    sov:0,     top10:0,  ranked:0,  notRanked:5,   color:'#ffb300'},
+  {name:'Netcongestie',                kw:10,  vol:0,    sov:0,     top10:0,  ranked:0,  notRanked:10,  color:'#e91e63'},
 ];
 
 // ══════════════════════════════════════════
@@ -484,7 +484,8 @@ labelData.forEach(t=>{
   const cov=(t.top10/t.kw*100).toFixed(1);
   const isWeak=parseFloat(cov)<5;
   const badge=isWeak?' <span style="background:#fde8e8;color:#c0392b;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px">LOW</span>':'';
-  tb.innerHTML+=`<tr><td><span class="theme-badge" style="background:${t.color}">${t.name}</span></td><td>${t.vol.toLocaleString('de-DE')}</td><td>${t.top10}</td><td>${cov}%${badge}</td><td>${t.kw}</td></tr>`;
+  const sovBadge=t.sov>=70?'background:#d5f5e3;color:#1e8449':t.sov>=30?'background:#fef6e8;color:#b8860b':'background:#fde8e8;color:#c0392b';
+  tb.innerHTML+=`<tr><td><span class="theme-badge" style="background:${t.color}">${t.name}</span></td><td>${t.vol.toLocaleString('de-DE')}</td><td><span style="${sovBadge};font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px">${t.sov}%</span></td><td>${t.top10}</td><td>${cov}%${badge}</td><td>${t.kw}</td></tr>`;
 });
 
 // Theme pie
