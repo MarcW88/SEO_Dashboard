@@ -186,29 +186,7 @@
     </div>
   </div>
 
-  <!-- 2. TOP 15 ORGANIC COMPETITORS -->
-  <div class="card">
-    <div class="card-hdr">
-      <div>
-        <div class="card-title">Top 15 Organic Competitors <span class="ci">&#9432;<span class="tip">Domains found ranking on the same tracked keywords.</span></span></div>
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <select class="sel"><option>Select labels</option></select>
-        <button class="btn-or">Select</button>
-      </div>
-    </div>
-    <div class="g32" style="margin:0">
-      <div>
-        <div class="card-sub" style="margin-bottom:10px;text-align:center">Number of Competitor pages on the same keywords</div>
-        <canvas id="chartPresenceBar" height="340"></canvas>
-      </div>
-      <div>
-        <canvas id="chartPresenceDonut" height="260"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. COMPETITIVE SNAPSHOT -->
+  <!-- 2. COMPETITIVE SNAPSHOT -->
   <div class="section-sep">Competitive Snapshot</div>
   <div class="g32">
     <div class="card" style="margin:0">
@@ -231,7 +209,30 @@
     </div>
   </div>
 
-  <!-- 3. VISIBILITY TREND -->
+  <!-- 3. TOP 15 ORGANIC COMPETITORS -->
+  <div class="card">
+    <div class="card-hdr">
+      <div>
+        <div class="card-title">Top 15 Organic Competitors <span class="ci">&#9432;<span class="tip">Includes informational &amp; institutional sites. Shows who else appears on your tracked keyword set.</span></span></div>
+        <div class="card-sub">Domains also ranking on the tracked keyword set (beyond core competitors)</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <select class="sel"><option>Select labels</option></select>
+        <button class="btn-or">Select</button>
+      </div>
+    </div>
+    <div class="g32" style="margin:0">
+      <div>
+        <div class="card-sub" style="margin-bottom:10px;text-align:center">Number of Competitor pages on the same keywords</div>
+        <canvas id="chartPresenceBar" height="340"></canvas>
+      </div>
+      <div>
+        <canvas id="chartPresenceDonut" height="260"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. VISIBILITY TREND -->
   <div class="card">
     <div class="card-hdr">
       <div>
@@ -456,7 +457,7 @@ new Chart(document.getElementById('chartPresenceDonut'),{
       legend:{position:'right',labels:{font:{size:10},boxWidth:12,padding:10,generateLabels:chart=>{
         return chart.data.labels.map((l,i)=>{const d=presenceData[i];const pct=totalP?(d.kw/totalP*100).toFixed(1):'0';return{text:l+' ('+pct+'%)',fillStyle:d.color,strokeStyle:'#faf7f2',lineWidth:2,index:i};});
       }}},
-      datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>0,color:'#fff',font:{size:9,weight:'bold'},formatter:(v)=>{const pct=totalP?(v/totalP*100).toFixed(1):'0';return pct+'%';}}
+      datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>0,color:'#fff',font:{size:11,weight:'bold'},formatter:(v)=>{const pct=totalP?(v/totalP*100).toFixed(1):'0';return pct+'%';}}
     }
   },
   plugins:[ChartDataLabels]
@@ -505,9 +506,10 @@ new Chart(document.getElementById('sovOverviewDonut'),{
         return chart.data.labels.map((l,i)=>{const d=sovOv[i];return{text:l+' — '+d.pct+'% ('+d.traffic+')',fillStyle:d.color,strokeStyle:'#faf7f2',lineWidth:2,index:i};});
       }}},
       tooltip:{callbacks:{label:ctx=>{const d=sovOv[ctx.dataIndex];return d.name+': '+d.pct+'% — est. '+d.traffic+' visits';}}},
-      datalabels:{display:false}
+      datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>1,color:'#fff',font:{size:12,weight:'bold'},formatter:v=>v+'%'}
     }
-  }
+  },
+  plugins:[ChartDataLabels]
 });
 
 // 3. Visibility Trend — with value in legend + last-point label
@@ -561,7 +563,8 @@ labelData.forEach(t=>{
 new Chart(document.getElementById('chartThemePie'),{
   type:'pie',
   data:{labels:labelData.map(t=>t.name),datasets:[{data:labelData.map(t=>t.vol),backgroundColor:labelData.map(t=>t.color),borderWidth:2,borderColor:'#faf7f2'}]},
-  options:{plugins:{legend:{position:'right',labels:{font:{size:9},boxWidth:10,padding:6}},datalabels:{display:false}}}
+  options:{plugins:{legend:{position:'right',labels:{font:{size:9},boxWidth:10,padding:6}},datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>2,color:'#fff',font:{size:11,weight:'bold'},formatter:(v,ctx)=>{const total=ctx.dataset.data.reduce((a,b)=>a+b,0);return(v/total*100).toFixed(0)+'%';}}}}
+  ,plugins:[ChartDataLabels]
 });
 
 // 5. Category Leaders — status instead of gap
