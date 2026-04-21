@@ -61,4 +61,4 @@ html_path = os.path.join(os.path.dirname(__file__), "dashboard.html")
 with open(html_path, "r", encoding="utf-8") as f:
     html_content = f.read()
 
-components.html(html_content, height=4500, scrolling=True)
+components.html(html_content, height=5500, scrolling=True)

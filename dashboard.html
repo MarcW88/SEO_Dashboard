@@ -200,7 +200,7 @@
     <div class="g32" style="margin:0">
       <div>
         <div class="card-sub" style="margin-bottom:10px;text-align:center">Number of Competitor pages on the same keywords</div>
-        <canvas id="chartPresenceBar" height="200"></canvas>
+        <canvas id="chartPresenceBar" height="340"></canvas>
       </div>
       <div>
         <canvas id="chartPresenceDonut" height="260"></canvas>
@@ -418,12 +418,22 @@ const labelData = [
 // 0. Top 15 Organic Competitors — presence on tracked keywords
 const compColors=['#2ecc71','#e67e22','#9b59b6','#e74c3c','#3498db','#1abc9c','#f1c40f','#e91e63','#00bcd4','#8bc34a','#ff9800','#607d8b','#795548','#cddc39','#9c27b0'];
 const presenceData = [
-  {name:'se.com',              kw:83},
-  {name:'equans.be',           kw:35},
-  {name:'honeywell.com',       kw:14},
-  {name:'spie.be',             kw:3},
-  {name:'siemens.be',          kw:2},
-  {name:'vinci-energies.be',   kw:0},
+  {name:'vlaanderen.be',       kw:147},
+  {name:'vlao.be',             kw:97},
+  {name:'nl.wikipedia.org',    kw:92},
+  {name:'youtube.com',         kw:78},
+  {name:'milieucentraal.nl',   kw:65},
+  {name:'klimaat.be',          kw:45},
+  {name:'nos.nl',              kw:42},
+  {name:'nl.linkedin.com',     kw:38},
+  {name:'sep.com',             kw:37},
+  {name:'EQUANS.BE',           kw:37},
+  {name:'rijksoverheid.nl',    kw:37},
+  {name:'europarl.europa.eu',  kw:34},
+  {name:'economie.fgov.be',    kw:31},
+  {name:'vlab.be',             kw:33},
+  {name:'en.wikipedia.org',    kw:32},
+  {name:'fluvius.be',          kw:29},
 ];
 presenceData.forEach((d,i)=>d.color=compColors[i%compColors.length]);
 new Chart(document.getElementById('chartPresenceBar'),{
