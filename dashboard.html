@@ -223,11 +223,11 @@
     </div>
     <div class="g32" style="margin:0">
       <div>
-        <div class="card-sub" style="margin-bottom:10px;text-align:center">Number of Competitor pages on the same keywords</div>
-        <canvas id="chartPresenceBar" height="200"></canvas>
+        <div class="card-sub" style="margin-bottom:6px;text-align:center">Number of Competitor pages on the same keywords</div>
+        <div style="height:280px"><canvas id="chartPresenceBar"></canvas></div>
       </div>
-      <div>
-        <canvas id="chartPresenceDonut" height="200"></canvas>
+      <div style="display:flex;align-items:center;justify-content:center">
+        <canvas id="chartPresenceDonut" height="240"></canvas>
       </div>
     </div>
   </div>
@@ -439,12 +439,13 @@ const presenceData = [
 presenceData.forEach((d,i)=>d.color=compColors[i%compColors.length]);
 new Chart(document.getElementById('chartPresenceBar'),{
   type:'bar',
-  data:{labels:presenceData.map(c=>c.name),datasets:[{data:presenceData.map(c=>c.kw),backgroundColor:presenceData.map(c=>c.color),borderRadius:2,barPercentage:.82,categoryPercentage:.88}]},
+  data:{labels:presenceData.map(c=>c.name),datasets:[{data:presenceData.map(c=>c.kw),backgroundColor:presenceData.map(c=>c.color),borderRadius:2,barPercentage:.45,categoryPercentage:.92}]},
   options:{
     indexAxis:'y',
+    responsive:true,
     maintainAspectRatio:false,
     plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'right',color:'#555',font:{size:9,weight:'bold'},formatter:v=>v}},
-    scales:{x:{ticks:{font:{size:9}},grid:{color:'#ebe6dc'}},y:{ticks:{font:{size:9,weight:'600'},padding:2},grid:{display:false}}}
+    scales:{x:{ticks:{font:{size:9}},grid:{color:'#ebe6dc'}},y:{ticks:{font:{size:9,weight:'600'},padding:1},grid:{display:false}}}
   },
   plugins:[ChartDataLabels]
 });
