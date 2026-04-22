@@ -210,7 +210,7 @@
   </div>
 
   <!-- 3. TOP 15 ORGANIC COMPETITORS -->
-  <div class="card">
+  <div class="card" style="padding:14px 16px">
     <div class="card-hdr">
       <div>
         <div class="card-title">Top 15 Organic Competitors <span class="ci">&#9432;<span class="tip">Includes informational &amp; institutional sites. Shows who else appears on your tracked keyword set.</span></span></div>
@@ -224,10 +224,10 @@
     <div class="g32" style="margin:0">
       <div>
         <div class="card-sub" style="margin-bottom:10px;text-align:center">Number of Competitor pages on the same keywords</div>
-        <canvas id="chartPresenceBar" height="340"></canvas>
+        <canvas id="chartPresenceBar" height="200"></canvas>
       </div>
       <div>
-        <canvas id="chartPresenceDonut" height="260"></canvas>
+        <canvas id="chartPresenceDonut" height="200"></canvas>
       </div>
     </div>
   </div>
@@ -439,11 +439,12 @@ const presenceData = [
 presenceData.forEach((d,i)=>d.color=compColors[i%compColors.length]);
 new Chart(document.getElementById('chartPresenceBar'),{
   type:'bar',
-  data:{labels:presenceData.map(c=>c.name),datasets:[{data:presenceData.map(c=>c.kw),backgroundColor:presenceData.map(c=>c.color),borderRadius:3,barPercentage:.6}]},
+  data:{labels:presenceData.map(c=>c.name),datasets:[{data:presenceData.map(c=>c.kw),backgroundColor:presenceData.map(c=>c.color),borderRadius:2,barPercentage:.82,categoryPercentage:.88}]},
   options:{
     indexAxis:'y',
-    plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'right',color:'#555',font:{size:10,weight:'bold'},formatter:v=>v}},
-    scales:{x:{ticks:{font:{size:10}},grid:{color:'#ebe6dc'}},y:{ticks:{font:{size:10,weight:'600'}},grid:{display:false}}}
+    maintainAspectRatio:false,
+    plugins:{legend:{display:false},datalabels:{display:true,anchor:'end',align:'right',color:'#555',font:{size:9,weight:'bold'},formatter:v=>v}},
+    scales:{x:{ticks:{font:{size:9}},grid:{color:'#ebe6dc'}},y:{ticks:{font:{size:9,weight:'600'},padding:2},grid:{display:false}}}
   },
   plugins:[ChartDataLabels]
 });
